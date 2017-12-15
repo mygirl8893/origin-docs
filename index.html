@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;ruby&quot;,&quot;python&quot;,&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;html&quot;,&quot;css&quot;,&quot;javascript&quot;,&quot;json&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -211,10 +211,10 @@
     <div class="toc-wrapper">
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
-              <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="ruby">ruby</a>
-              <a href="#" data-language-name="python">python</a>
+              <a href="#" data-language-name="html">html</a>
+              <a href="#" data-language-name="css">css</a>
               <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="json">json</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -225,19 +225,144 @@
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
           </li>
           <li>
-            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
-          </li>
-          <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
+            <a href="#getting-started" class="toc-h1 toc-link" data-title="Getting started">Getting started</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Get All Kittens">Get All Kittens</a>
+                    <a href="#install-metamask" class="toc-h2 toc-link" data-title="Install Metamask">Install Metamask</a>
                   </li>
                   <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="Get a Specific Kitten">Get a Specific Kitten</a>
+                    <a href="#acquire-test-eth" class="toc-h2 toc-link" data-title="Acquire Test ETH">Acquire Test ETH</a>
                   </li>
                   <li>
-                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="Delete a Specific Kitten">Delete a Specific Kitten</a>
+                    <a href="#hello-world" class="toc-h2 toc-link" data-title="Hello World">Hello World</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#authentication-amp-identity" class="toc-h1 toc-link" data-title="Authentication &amp; Identity">Authentication &amp; Identity</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#identity-verification" class="toc-h2 toc-link" data-title="Identity verification">Identity verification</a>
+                  </li>
+                  <li>
+                    <a href="#publicly-auditable-proofs" class="toc-h2 toc-link" data-title="Publicly-Auditable Proofs">Publicly-Auditable Proofs</a>
+                  </li>
+                  <li>
+                    <a href="#trusted-third-parties" class="toc-h2 toc-link" data-title="Trusted Third-Parties">Trusted Third-Parties</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#architecture" class="toc-h1 toc-link" data-title="Architecture">Architecture</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#jsonschema" class="toc-h2 toc-link" data-title="JSONSchema">JSONSchema</a>
+                  </li>
+                  <li>
+                    <a href="#ethereum" class="toc-h2 toc-link" data-title="Ethereum">Ethereum</a>
+                  </li>
+                  <li>
+                    <a href="#ipfs" class="toc-h2 toc-link" data-title="IPFS">IPFS</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#listing-schemas" class="toc-h1 toc-link" data-title="Listing Schemas">Listing Schemas</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#base-schema" class="toc-h2 toc-link" data-title="Base Schema">Base Schema</a>
+                  </li>
+                  <li>
+                    <a href="#example-schemas" class="toc-h2 toc-link" data-title="Example Schemas">Example Schemas</a>
+                  </li>
+                  <li>
+                    <a href="#inheritance" class="toc-h2 toc-link" data-title="Inheritance">Inheritance</a>
+                  </li>
+                  <li>
+                    <a href="#extensibility" class="toc-h2 toc-link" data-title="Extensibility">Extensibility</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#objects" class="toc-h1 toc-link" data-title="Objects">Objects</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#user" class="toc-h2 toc-link" data-title="User">User</a>
+                  </li>
+                  <li>
+                    <a href="#listing" class="toc-h2 toc-link" data-title="Listing">Listing</a>
+                  </li>
+                  <li>
+                    <a href="#booking" class="toc-h2 toc-link" data-title="Booking">Booking</a>
+                  </li>
+                  <li>
+                    <a href="#feedback" class="toc-h2 toc-link" data-title="Feedback">Feedback</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#functions" class="toc-h1 toc-link" data-title="Functions">Functions</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#browse-listings" class="toc-h2 toc-link" data-title="Browse Listings">Browse Listings</a>
+                  </li>
+                  <li>
+                    <a href="#search-listings" class="toc-h2 toc-link" data-title="Search Listings">Search Listings</a>
+                  </li>
+                  <li>
+                    <a href="#create-listing" class="toc-h2 toc-link" data-title="Create Listing">Create Listing</a>
+                  </li>
+                  <li>
+                    <a href="#update-listing" class="toc-h2 toc-link" data-title="Update Listing">Update Listing</a>
+                  </li>
+                  <li>
+                    <a href="#deactivate-listing" class="toc-h2 toc-link" data-title="Deactivate Listing">Deactivate Listing</a>
+                  </li>
+                  <li>
+                    <a href="#book-listing" class="toc-h2 toc-link" data-title="Book Listing">Book Listing</a>
+                  </li>
+                  <li>
+                    <a href="#leave-feedback" class="toc-h2 toc-link" data-title="Leave Feedback">Leave Feedback</a>
+                  </li>
+                  <li>
+                    <a href="#messaging" class="toc-h2 toc-link" data-title="Messaging">Messaging</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#getting-help" class="toc-h1 toc-link" data-title="Getting help">Getting help</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#slack" class="toc-h2 toc-link" data-title="Slack">Slack</a>
+                  </li>
+                  <li>
+                    <a href="#email" class="toc-h2 toc-link" data-title="Email">Email</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#contributing" class="toc-h1 toc-link" data-title="Contributing">Contributing</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#dive-right-in" class="toc-h2 toc-link" data-title="Dive Right In">Dive Right In</a>
+                  </li>
+                  <li>
+                    <a href="#protocol-design" class="toc-h2 toc-link" data-title="Protocol Design">Protocol Design</a>
+                  </li>
+                  <li>
+                    <a href="#community-guidelines" class="toc-h2 toc-link" data-title="Community Guidelines">Community Guidelines</a>
+                  </li>
+                  <li>
+                    <a href="#reporting-issues" class="toc-h2 toc-link" data-title="Reporting Issues">Reporting Issues</a>
+                  </li>
+                  <li>
+                    <a href="#security-issues" class="toc-h2 toc-link" data-title="Security Issues">Security Issues</a>
+                  </li>
+                  <li>
+                    <a href="#community-improvement" class="toc-h2 toc-link" data-title="Community Improvement">Community Improvement</a>
+                  </li>
+                  <li>
+                    <a href="#full-time-positions" class="toc-h2 toc-link" data-title="Full Time Positions">Full Time Positions</a>
                   </li>
               </ul>
           </li>
@@ -246,7 +371,7 @@
           </li>
       </div>
         <ul class="toc-footer">
-            <li><a href='#'>Sign Up for a Developer Key</a></li>
+            <li><a href='http://www.originprotocol.com'>Return to the Origin homepage</a></li>
             <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
         </ul>
     </div>
@@ -254,184 +379,239 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.</p>
+<p>Origin.js enables the creation of decentralized marketplaces that allow buyers and sellers to find each other and transact without requiring any trusted intermediaries.</p>
 
-<p>We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.</p>
+<p>We&#39;re motivated by a deep desire to eliminate rent-seeking middlemen, reduce censorship, maximize personal liberty, and to give early participants in the community a stake in the network.</p>
 
-<p>This example API documentation page was created with <a href="https://github.com/lord/slate">Slate</a>. Feel free to edit it and use it as a base for your own API&#39;s documentation.</p>
-<h1 id='authentication'>Authentication</h1>
-<blockquote>
-<p>To authorize, use this code:</p>
-</blockquote>
-<pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<p>This API documentation will explain how you can use the origin.js library to create your own decentralized marketplace using <a href="https://github.com/ipfs">IPFS</a> and the <a href="https://https//www.ethereum.org/">Ethereum network</a>.</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<p>Please note, this project is still in heavy development and many of the features described below have not been implemented yet. This library should not be considered as production-ready.</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
+<p>Origin.js and the entire Origin Protocol project is 100% Open Source and we welcome contributions of all sorts. There are many ways to help, from reporting issues, contributing code, and helping us improve and grow our community.</p>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
-</blockquote>
-
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
-
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
-
-<p><code>Authorization: meowmeowmeow</code></p>
+<p>If you are interested in getting involved, please read our section on <a href="#contributing">contributing</a>. If at any point you get stuck, please <a href="#getting-help">reach out</a> and we&#39;ll do our best to help. </p>
+<h1 id='getting-started'>Getting started</h1><h3 id='install-metamask'>Install Metamask</h3>
+<p>Install the <a href="https://metamask.io/">Metamask Chrome Browser Extension</a>. This will enable you to connect to the Ethereum network from your browser. Metamask allows you to run Ethereum dApps right in your browser without running a full Ethereum node. Metamask is required for saving any changes to Origin objects to the network.</p>
+<h3 id='acquire-test-eth'>Acquire Test ETH</h3>
+<p>Our smart contracts are currently deployed on the <code>Rinkeby testnet</code>. You will need to have test ETH to use this library. You can request test funds from the <a href="https://faucet.rinkeby.io/">Rinkeby faucet</a>. Do not yet send real ETH on the Origin network. Use Rinkeby testnet ETH instead.</p>
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+Do not send real ETH on the Origin network. Use Rinkeby testnet ETH instead.
 </aside>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
-</code></pre>
+<h3 id='hello-world'>Hello World</h3>
 <blockquote>
-<p>The above command returns JSON structured like this:</p>
+<p>Sample app</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves all kittens.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
-</tr>
-</tbody></table>
+<pre class="highlight html tab-html"><code><span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;title&gt;</span>Hello World<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+  <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"origin.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">origin</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Origin</span><span class="p">();</span>
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+<span class="kd">var</span> <span class="nx">user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">();</span>
+<span class="nx">user</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">"Joe"</span>
+
+<span class="kd">var</span> <span class="nx">listing</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Listing</span><span class="p">();</span>
+<span class="nx">listing</span><span class="p">.</span><span class="nx">owner</span> <span class="o">=</span> <span class="nx">user</span>
+
+<span class="nx">listing</span><span class="p">.</span><span class="nx">save</span><span class="p">()</span>
+
+</code></pre><h1 id='authentication-amp-identity'>Authentication &amp; Identity</h1><h2 id='identity-verification'>Identity verification</h2>
+<p>Users identities are tied to Ethereum addresses and your private keys are used as the sole method of authentication on the Origin platform.</p>
+
+<p>Users can always prove ownership of a wallet without sending funds, simply by signing a message using their private keys.</p>
+
+<p>Users can assume multiple identities by creating multiple wallets. In this manner, users can choose how much of their  off-line identities they wish to reveal to other users while participating on the Origin network.</p>
+
+<p>Origin allows users to identify themselves using <a href="#publicly-auditable-proofs">publicly auditable proofs</a> and attestations from <a href="#trusted-third-parties">trusted third-parties</a>.</p>
+
+<aside class="notice">
+Make sure to safely store your private keys. We can't help if you lose them.
 </aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<h2 id='publicly-auditable-proofs'>Publicly-Auditable Proofs</h2>
+<p>A user can choose to identify themselves on other platforms using
+publicly auditable proofs. A user can post their public key on
+Facebook or Twitter and then cryptographically sign their listing using their
+private key. Users can then include links in their listings to the Facebook post,
+tweet or website that displays their public key. In this manner, anyone can
+independently verify the poster’s identity, or at least confirm that they control
+those accounts or domain. Origin.js simplifies this process for users by
+making it easy to generate these proofs and verify the proofs of other users.
+As people share their identity proofs on Facebook and Twitter, it will help 
+create network effects as friends learn about Origin and decide to participate.</p>
+<h2 id='trusted-third-parties'>Trusted Third-Parties</h2>
+<p>Users can also collect verifications from trusted third-parties like
+<a href="https://www.civic.com/">Civic</a>, <a href="https://www.uport.me/">uPort</a> or the Origin Foundation.
+These third-party providers can provide identity verification 
+that interfaces with the offline world. For example, a third-party identity provider 
+may help confirm a physical address by sending a postcard with a special code to that address and then having the user enter that code on a website. Similar methods can be used to confirm control of a phone number or
+email address. Trusted third-parties can also verify government IDs like drivers
+licenses and passports which are required for certain types of listings like car
+rentals.</p>
+<h1 id='architecture'>Architecture</h1>
+<p>If you&#39;re new to the space, it may be helpful to first familiarize yourself with some of the core technologies that we&#39;re using to build Origin, such as <a href="#jsonschema">JSONSchema</a>, <a href="#ipfs">IPFS</a> and <a href="#ethereum">Ethereum</a></p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<p>Origin listings can be created using a frontend DApp to publish a JSON data object to
+any publicly writeable IPFS gateway. This JSON data object must conform to a set of
+standards and validation rules to be considered valid on the network. Users can
+optionally sign their listings cryptographically to verify their identity using
+publicly auditable proofs or trusted third parties. The IPFS gateway will publish the
+listing to the IPFS network making the listing instantly available via hundreds of
+distributed computers around the world to anyone who knows the content hash. The
+content hash of the listing is then sent to a smart contract which formally publishes
+the listing and stores pricing and availability information along with any specified
+booking rules and policies.</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
+<p>Listings can easily be searched, browsed, and booked via a frontend DApp. Since we
+anticipate having too many listings to reasonably parse in a browser, the frontend
+DApp connects to an open-source indexing server of the user’s choosing, making it
+possible to search and filter the entire public corpus of listings. Once a listing has
+been selected, a user can make a booking by sending payment to the booking smart
+contract along with the IPFS hash of the chosen listing and the desired interval to
+book. The smart contract will verify that the booking is valid and handle the transfer
+of tokens between the buyer and the seller, including the escrow of funds when
+applicable.</p>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
+<p>We anticipate most sellers will prefer to list their prices in fiat currencies which
+often have less volatility than digital currencies. To solve this challenge, both the
+booking smart contract and the indexing servers will use a common set of oracles and a
+shared algorithm to determine the exchange rate to be used. This allows prices to be
+shown to end users in their preferred fiat currencies while the correct amount of
+digital tokens are sent during the booking. A diverse set of oracles will be chosen to
+avoid introducing single points of failure into the system.</p>
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
-</tr>
-</tbody></table>
-<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
+<p>Sellers are responsible for disclosing their preferred messaging channels in their
+listings through which buyers can contact them before, during, or after a transaction.
+Buyers can similarly indicate their preferred messaging channels when they complete a
+booking. Non-transactional communication between buyers and sellers will occur
+off-chain, and both parties are encouraged to only use secure and verifiable
+communication channels. For transactions that have a possibility of needing
+arbitration, a multisignature messaging channel should be chosen that includes the
+arbitrator in all communications.</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
+<p>Once a transaction is complete, users are encouraged via economic incentives to leave
+feedback about the interaction in the form of a rating or review. Once again, the
+content is stored on IPFS and only the content hash is stored on Ethereum. Users are
+able to establish their reputations over time with verified transactions, building a
+unified reputation across multiple listing verticals. Buyers can use different wallets
+with varying levels of identity attached for sensitive transactions, or choose to only
+reveal their true identity to the seller while using a throw-away wallet.</p>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -X DELETE
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
+<p>Listing policies around escrow, refunds, required deposits, and cancellations are set
+by the seller and are strictly enforced by the booking smart contract. Any exceptions
+to the policies must be handled directly off-chain by the two parties.</p>
+<h2 id='jsonschema'>JSONSchema</h2>
+<p><a href="http://json-schema.org/">Learn more about JSONSchema</a></p>
+<h2 id='ethereum'>Ethereum</h2>
+<p><a href="https://https//www.ethereum.org/">Learn more about Ethereum</a>.</p>
+<h2 id='ipfs'>IPFS</h2>
+<p><a href="https://github.com/ipfs">Learn more about IPFS</a>.</p>
+<h1 id='listing-schemas'>Listing Schemas</h1>
+<p>Since many unrelated developers will be reading and writing to
+the same data layer, it is essential that everyone adhere to common standards.
+We will publish and maintain the rules for what constitutes a “valid Origin
+listing” as well as a library of inheritable JSON schemas for fields commonly
+used on listings, such as email addresses, URLs, GPS coordinates, international
+street addresses, international phone numbers and other metadata. These schemas
+are also easily extensible enabling the creation of new product categories,
+support for internationalization or other languages as well as other unforeseen
+use-cases.</p>
+<h2 id='base-schema'>Base Schema</h2>
+<p>Every Origin listing must contain some standard fields in order to be considered valid.</p>
+<h2 id='example-schemas'>Example Schemas</h2>
+<p>Example schemas can be found in the <a href="https://github.com/OriginProtocol/listing-schemas">Schemas repository</a>. These need a lot more work.</p>
+<h2 id='inheritance'>Inheritance</h2>
+<p>Inherit commonly used fields like:</p>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint deletes a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the kitten to delete</td>
-</tr>
-</tbody></table>
+<ul>
+<li>Email Addresses</li>
+<li>URLs</li>
+<li>GPS Coordinates</li>
+<li>International Street Addresses</li>
+<li>International Phone Numbers</li>
+<li>Other Metadata</li>
+</ul>
+<h2 id='extensibility'>Extensibility</h2><h1 id='objects'>Objects</h1><h2 id='user'>User</h2><h2 id='listing'>Listing</h2><h2 id='booking'>Booking</h2><h2 id='feedback'>Feedback</h2><h3 id='ratings'>Ratings</h3>
+<p>1-5 </p>
+<h3 id='reviews'>Reviews</h3>
+<p>String</p>
+<h3 id='comments'>Comments</h3>
+<p>String</p>
+<h1 id='functions'>Functions</h1><h2 id='browse-listings'>Browse Listings</h2><h2 id='search-listings'>Search Listings</h2><h2 id='create-listing'>Create Listing</h2><h2 id='update-listing'>Update Listing</h2><h2 id='deactivate-listing'>Deactivate Listing</h2><h2 id='book-listing'>Book Listing</h2><h2 id='leave-feedback'>Leave Feedback</h2><h2 id='messaging'>Messaging</h2><h1 id='getting-help'>Getting help</h1><h2 id='slack'>Slack</h2>
+<p>Our team collaboration is done in public and our company Slack is open to all. If you have questions or need help getting started, our Slack channel is a great place to get assistance from our team of engineers and developers.</p>
+
+<p><a href="http://slack.originprotocol.com">Request an invite to join the Origin Protocol Slack</a></p>
+
+<p>Once inside, find us in one of the <code>eng</code> channels.</p>
+<h2 id='email'>Email</h2>
+<p>You can also reach us by email at <a href="mailto:support@originprotocol.com">support@originprotocol.com</a>.</p>
+<h1 id='contributing'>Contributing</h1>
+<p>Want to hack on Origin? Awesome! Here are instructions to get you started.
+They are not perfect yet. Please let us know what feels wrong or incomplete.</p>
+
+<p>Origin is an Open Source project and we welcome contributions of all sorts.
+There are many ways to help, from reporting issues, contributing code, and
+helping us improve our community.</p>
+<h3 id='dive-right-in'>Dive Right In</h3>
+<p>If you&#39;re ready to start hacking on Origin right now and you just need an issue to focus on, check out <a href="https://github.com/search?utf8=%E2%9C%93&amp;q=user%3AOriginProtocol+is%3Aopen+&amp;type=Issues">this search of all our currently open issues on Github</a>.</p>
+
+<p>Read our <a href="#community-guidelines">community guidelines</a> first and have fun!</p>
+<h3 id='protocol-design'>Protocol Design</h3>
+<p>When considering protocol or implementation design proposals, we are looking for:</p>
+
+<ul>
+<li>A description of the problem this design proposal solves</li>
+<li>Discussion of the trade-offs involved</li>
+<li>Review of other existing solutions</li>
+<li>Links to relevant literature (RFCs, papers, etc)</li>
+<li>Discussion of the proposed solution</li>
+</ul>
+
+<p>Please note that protocol design is hard, and meticulous work. You may need to review existing literature and think through generalized use cases.</p>
+<h3 id='community-guidelines'>Community Guidelines</h3>
+<p>We want to keep the Origin community awesome, growing and collaborative. We need your help to keep it that way. To help with this we&#39;ve come up with some general guidelines for the community as a whole:</p>
+
+<ul>
+<li><p>Be nice: Be courteous, respectful and polite to fellow community members: no regional, racial, gender, or other abuse will be tolerated. We like nice people way better than mean ones!</p></li>
+<li><p>Encourage diversity and participation: Make everyone in our community feel welcome, regardless of their background and the extent of their contributions, and do everything possible to encourage participation in our community.</p></li>
+<li><p>Keep it legal: Basically, don&#39;t get anybody in trouble. Share only content that you own, do not share private or sensitive information, and don&#39;t break laws.</p></li>
+<li><p>Stay on topic: Make sure that you are posting to the correct channel and avoid off-topic discussions. Remember when you update an issue or respond to an email you are potentially sending to a large number of people. Please consider this before you update. Also remember that nobody likes spam.</p></li>
+</ul>
+<h3 id='reporting-issues'>Reporting Issues</h3>
+<p>If you find bugs, mistakes or inconsistencies in the Origin project&#39;s code or
+documents, please let us know by filing an issue at the appropriate issue
+tracker (we use multiple repositories). </p>
+
+<aside class="notice">
+No issue is too small. Help us fix our tpyos!
+</aside>
+
+<ul>
+<li><a href="https://github.com/OriginProtocol/docs/issues">Docs issues</a></li>
+<li><a href="https://github.com/OriginProtocol/origin-js/issues">Origin.js issues</a></li>
+<li><a href="https://github.com/OriginProtocol/demo-dapp/issues">Demo Dapp issues</a></li>
+<li><a href="https://github.com/OriginProtocol/company-website/issues">Company website issues</a></li>
+</ul>
+<h3 id='security-issues'>Security Issues</h3>
+<p>The Origin Protocol and its implementations are still in heavy development. This means that there may be problems in our protocols, or there may be mistakes in our implementations. We take security vulnerabilities very seriously. If you discover a security issue, please bring it to our attention right away!</p>
+
+<p>If you find a vulnerability please send your report privately to <a href="mailto:security@originprotocol.com">security@originprotocol.com</a> or <a href="https://keybase.io/joshfraser">contact Josh Fraser via Keybase</a>. Please DO NOT file a public issue.</p>
+
+<p>If the issue is a protocol weakness or something not yet deployed, just discuss it openly.</p>
+<h3 id='community-improvement'>Community Improvement</h3>
+<p>Origin is just as much about community as it is about our technology.</p>
+
+<p>We need constant help in improving our documentation, building new tools to interface with our platform, spreading the word to new users, helping new users getting setup and much more.</p>
+
+<p>Please get in touch if you would like to help out. Our <code>community</code> channel on <a href="#slack">Slack</a> is a great place to share ideas and volunteer to help.</p>
+<h3 id='full-time-positions'>Full Time Positions</h3>
+<p>Origin occasionally hires developers for part time or full time positions. </p>
+
+<p>We have a strong preference for hiring people who have already started contributing to the project. If you want a full time position on our team, your best shot is to engage with our team and start contributing code. It is very unlikely that we would offer you a full time position on our engineering team unless you&#39;ve had at least a couple approved pull requests first. </p>
+
+<p>If you are interested, check out <a href="https://angel.co/originprotocol/jobs">the Origin Protocol job listings</a>. If you&#39;d like to help in other ways, propose your ideas on the <a href="#slack">Origin Slack</a>.</p>
 <h1 id='errors'>Errors</h1>
 <aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
 
@@ -492,10 +672,10 @@ Remember — a happy kitten is an authenticated kitten!
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="ruby">ruby</a>
-                <a href="#" data-language-name="python">python</a>
+                <a href="#" data-language-name="html">html</a>
+                <a href="#" data-language-name="css">css</a>
                 <a href="#" data-language-name="javascript">javascript</a>
+                <a href="#" data-language-name="json">json</a>
           </div>
       </div>
     </div>
