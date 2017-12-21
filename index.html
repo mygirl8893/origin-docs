@@ -201,7 +201,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;html&quot;,&quot;css&quot;,&quot;javascript&quot;,&quot;json&quot;]">
+  <body class="index" data-languages="[&quot;html&quot;,&quot;javascript&quot;,&quot;json&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -212,7 +212,6 @@
       <img src="images/logo.png" class="logo" alt="Logo" />
         <div class="lang-selector">
               <a href="#" data-language-name="html">html</a>
-              <a href="#" data-language-name="css">css</a>
               <a href="#" data-language-name="javascript">javascript</a>
               <a href="#" data-language-name="json">json</a>
         </div>
@@ -223,12 +222,54 @@
       <div id="toc" class="toc-list-h1">
           <li>
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#usage" class="toc-h2 toc-link" data-title="Usage">Usage</a>
+                  </li>
+                  <li>
+                    <a href="#notes" class="toc-h2 toc-link" data-title="Notes">Notes</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#platform-components" class="toc-h1 toc-link" data-title="Platform Components">Platform Components</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#user-registry" class="toc-h2 toc-link" data-title="User Registry">User Registry</a>
+                  </li>
+                  <li>
+                    <a href="#listing-registry" class="toc-h2 toc-link" data-title="Listing Registry">Listing Registry</a>
+                  </li>
+                  <li>
+                    <a href="#booking-contracts" class="toc-h2 toc-link" data-title="Booking Contracts">Booking Contracts</a>
+                  </li>
+                  <li>
+                    <a href="#contract-modularity" class="toc-h2 toc-link" data-title="Contract Modularity">Contract Modularity</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#architecture" class="toc-h1 toc-link" data-title="Architecture">Architecture</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#jsonschema" class="toc-h2 toc-link" data-title="JSONSchema">JSONSchema</a>
+                  </li>
+                  <li>
+                    <a href="#ethereum" class="toc-h2 toc-link" data-title="Ethereum">Ethereum</a>
+                  </li>
+                  <li>
+                    <a href="#ipfs" class="toc-h2 toc-link" data-title="IPFS">IPFS</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#getting-started" class="toc-h1 toc-link" data-title="Getting started">Getting started</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#install-metamask" class="toc-h2 toc-link" data-title="Install Metamask">Install Metamask</a>
+                    <a href="#download-origin" class="toc-h2 toc-link" data-title="Download Origin">Download Origin</a>
+                  </li>
+                  <li>
+                    <a href="#use-an-ethereum-browser" class="toc-h2 toc-link" data-title="Use an Ethereum browser">Use an Ethereum browser</a>
                   </li>
                   <li>
                     <a href="#acquire-test-eth" class="toc-h2 toc-link" data-title="Acquire Test ETH">Acquire Test ETH</a>
@@ -249,20 +290,6 @@
                   </li>
                   <li>
                     <a href="#trusted-third-parties" class="toc-h2 toc-link" data-title="Trusted Third-Parties">Trusted Third-Parties</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#architecture" class="toc-h1 toc-link" data-title="Architecture">Architecture</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#jsonschema" class="toc-h2 toc-link" data-title="JSONSchema">JSONSchema</a>
-                  </li>
-                  <li>
-                    <a href="#ethereum" class="toc-h2 toc-link" data-title="Ethereum">Ethereum</a>
-                  </li>
-                  <li>
-                    <a href="#ipfs" class="toc-h2 toc-link" data-title="IPFS">IPFS</a>
                   </li>
               </ul>
           </li>
@@ -366,9 +393,6 @@
                   </li>
               </ul>
           </li>
-          <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
-          </li>
       </div>
         <ul class="toc-footer">
             <li><a href='http://www.originprotocol.com'>Where it all begins!</a></li>
@@ -378,26 +402,124 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Origin.js enables the creation of decentralized marketplaces that allow buyers and sellers to find each other and transact without requiring any trusted intermediaries.</p>
+<p>Origin provides a simple and powerful javascript library for developers to build decentralized marketplaces, allowing buyers and sellers to meet and transact without requiring any trusted intermediaries.</p>
+<h3 id='usage'>Usage</h3>
+<blockquote>
+<p>Visit our Github: <a href="https://github.com/OriginProtocol/origin-js">https://github.com/OriginProtocol/origin-js</a></p>
+</blockquote>
 
-<p>We&#39;re motivated by a deep desire to eliminate rent-seeking middlemen, reduce censorship, maximize personal liberty, and to give early participants in the community a stake in the network.</p>
+<p>This API documentation will explain how developers can use the origin.js library to create and manage decentralized marketplaces that are built on top of <a href="https://github.com/ipfs">IPFS</a> and the <a href="https://https//www.ethereum.org/">Ethereum network</a>.</p>
 
-<p>This API documentation will explain how you can use the origin.js library to create your own decentralized marketplace using <a href="https://github.com/ipfs">IPFS</a> and the <a href="https://https//www.ethereum.org/">Ethereum network</a>.</p>
+<p>Origin.js aims to create an easy and flexible abstraction layer that:</p>
 
-<p>Please note, this project is still in heavy development and many of the features described below have not been implemented yet. This library should not be considered as production-ready.</p>
+<ul>
+<li>Generates and deploys secure Ethereum smart contracts to the blockchain.</li>
+<li>Creates and posts user and listing metadata to distributed IPFS nodes</li>
+<li>Queries against open-source indexing servers to render content in decentralized applications (DApps)</li>
+</ul>
 
-<p>Origin.js and the entire Origin Protocol project is 100% Open Source and we welcome contributions of all sorts. There are many ways to help, from reporting issues, contributing code, and helping us improve and grow our community.</p>
+<p>Origin.js will enable developers to create DApps that onboard new users to the Origin platform, add new listings to the listings registry, create booking contracts, close out bookings (transfer funds, write reviews, etc.), and more.</p>
+<h3 id='notes'>Notes</h3>
+<p>Please note this project is still in heavy development and many of the features described below have not been implemented yet. This library should not be considered as production-ready.</p>
+
+<p>Origin.js and the entire Origin Protocol project is 100% open-source and we welcome contributions from the community. There are many ways to help, from reporting issues and contributing code to helping us improve and grow our community.</p>
 
 <p>If you are interested in getting involved, please read our section on <a href="#contributing">contributing</a>. If at any point you get stuck, please <a href="#getting-help">reach out</a> and we&#39;ll do our best to help. </p>
-<h1 id='getting-started'>Getting started</h1><h3 id='install-metamask'>Install Metamask</h3>
-<p>Install the <a href="https://metamask.io/">Metamask Chrome Browser Extension</a>. This will enable you to connect to the Ethereum network from your browser. Metamask allows you to run Ethereum dApps right in your browser without running a full Ethereum node. Metamask is required for saving any changes to Origin objects to the network.</p>
+<h1 id='platform-components'>Platform Components</h1>
+<p>Origin.js provides the interface for developers to interact with the rest of the Origin platform, all without writing Solidity code or managing IPFS instances.</p>
+
+<p>At a high-level, the Origin platform consists of user, listing, and booking data and logic stored on the decentralized tech stack. Mission-critical data and logic such as booking availability, transaction history, and escrow rules are generally stored on chain in a series of Ethereum smart contracts. Related metadata such as listing descriptions and images are stored on IPFS, with pointers to this data in the form of content hashes being stored on chain.</p>
+<h3 id='user-registry'>User Registry</h3>
+<p>The Origin user registry is a datastore of all Origin-enabled users. Origin users are identified by their Ethereum wallet addresses. In addition, the user registry also stores a mapping of all forms of identity verification that the user has successfully undertaken.</p>
+
+<p>For example, users may want to verify their identity with third-party services like uPort or Civic, or use publicly-auditable proofs to verify their social media profiles. These identity &quot;proofs&quot; are referenced within the user registry so that DApps, and ultimately counter-parties, are able to verify the validity of these users.</p>
+
+<p>Origin.js enables developers to register users to the shared user registry, as well as query for identity verifications.</p>
+<h3 id='listing-registry'>Listing Registry</h3>
+<p>The listing registry stores all valid Origin listings, from cars for rent to freelance design services. Developers will be able to create new listings in JSON, then push them to the Origin listing registry. Under the covers, Origin.js handles the creation of new IPFS content files for static metadata and new entries to the Origin listing registry smart contract.</p>
+
+<p>Note that Origin.js does not support browsing and searching the listing registry directly. It is recommended that developers use our open-source server-side indexing service (or build your own) to efficiently query the blockchain.</p>
+<h3 id='booking-contracts'>Booking Contracts</h3>
+<p>Booking contracts are automatically created when buyers book listings on Origin-powered DApps. These individual smart contract instances are generated and deployed with rules around price, reservation time, and payment rules. For certain listing types, Origin.js will also generate additional contract code for arbitration, escrow, deposits, payment schedules, etc.</p>
+<h3 id='contract-modularity'>Contract Modularity</h3>
+<p>Origin smart contracts are designed to be flexible and modular. We recognize the need for developers and entrepreneurs to have choice in selecting smart contract components that tailor-serve their needs.</p>
+
+<p>To that end, we will provide default contracts for escrow, arbitration, and insurance that will be inherited by our booking smart contracts. However, developers will be able to specify alternative contracts of their choosing (either their own or approved third-party contracts) in Origin.js function calls to generate custom booking contracts.</p>
+<h1 id='architecture'>Architecture</h1>
+<p>If you&#39;re new to the space, it may be helpful to first familiarize yourself with some of the core technologies that we&#39;re using to build Origin, such as <a href="#jsonschema">JSONSchema</a>, <a href="#ipfs">IPFS</a> and <a href="#ethereum">Ethereum</a>.</p>
+
+<p>Origin listings can be created using a frontend DApp to publish a JSON data object to
+any publicly writeable IPFS gateway. This JSON data object must conform to a set of
+standards and validation rules to be considered valid on the network. Users can
+optionally sign their listings cryptographically to verify their identity using
+publicly auditable proofs or trusted third parties. The IPFS gateway will publish the
+listing to the IPFS network making the listing instantly available via hundreds of
+distributed computers around the world to anyone who knows the content hash. The
+content hash of the listing is then sent to a smart contract which formally publishes
+the listing and stores pricing and availability information along with any specified
+booking rules and policies.</p>
+
+<p>Listings can easily be searched, browsed, and booked via a frontend DApp. Since we
+anticipate having too many listings to reasonably parse in a browser, the frontend
+DApp connects to an open-source indexing server of the user’s choosing, making it
+possible to search and filter the entire public corpus of listings. Once a listing has
+been selected, a user can make a booking by sending payment to the booking smart
+contract along with the IPFS hash of the chosen listing and the desired interval to
+book. The smart contract will verify that the booking is valid and handle the transfer
+of tokens between the buyer and the seller, including the escrow of funds when
+applicable.</p>
+
+<p>We anticipate most sellers will prefer to list their prices in fiat currencies which
+often have less volatility than digital currencies. To solve this challenge, both the
+booking smart contract and the indexing servers will use a common set of oracles and a
+shared algorithm to determine the exchange rate to be used. This allows prices to be
+shown to end users in their preferred fiat currencies while the correct amount of
+digital tokens are sent during the booking. A diverse set of oracles will be chosen to
+avoid introducing single points of failure into the system.</p>
+
+<p>Sellers are responsible for disclosing their preferred messaging channels in their
+listings through which buyers can contact them before, during, or after a transaction.
+Buyers can similarly indicate their preferred messaging channels when they complete a
+booking. Non-transactional communication between buyers and sellers will occur
+off-chain, and both parties are encouraged to only use secure and verifiable
+communication channels. For transactions that have a possibility of needing
+arbitration, a multisignature messaging channel should be chosen that includes the
+arbitrator in all communications.</p>
+
+<p>Once a transaction is complete, users are encouraged via economic incentives to leave
+feedback about the interaction in the form of a rating or review. Once again, the
+content is stored on IPFS and only the content hash is stored on Ethereum. Users are
+able to establish their reputations over time with verified transactions, building a
+unified reputation across multiple listing verticals. Buyers can use different wallets
+with varying levels of identity attached for sensitive transactions, or choose to only
+reveal their true identity to the seller while using a throw-away wallet.</p>
+
+<p>Listing policies around escrow, refunds, required deposits, and cancellations are set
+by the seller and are strictly enforced by the booking smart contract. Any exceptions
+to the policies must be handled directly off-chain by the two parties.</p>
+<h3 id='jsonschema'>JSONSchema</h3>
+<p><a href="http://json-schema.org/">Learn more about JSONSchema</a></p>
+<h3 id='ethereum'>Ethereum</h3>
+<p><a href="https://https//www.ethereum.org/">Learn more about Ethereum</a></p>
+<h3 id='ipfs'>IPFS</h3>
+<p><a href="https://github.com/ipfs">Learn more about IPFS</a></p>
+<h1 id='getting-started'>Getting started</h1><h3 id='download-origin'>Download Origin</h3>
+<p>Origin.js is under active development. Our upcoming 0.1 release will be available at our <a href="https://github.com/OriginProtocol/origin-js">Github repo</a> soon.</p>
+<h3 id='use-an-ethereum-browser'>Use an Ethereum browser</h3>
+<p>For testing and interacting with your DApp, you will need to use an Ethereum-enabled browser. Currently, we recommend using Metamask with Chrome.</p>
+
+<p>Install the <a href="https://metamask.io/">Metamask Chrome Browser Extension</a>. This will enable you to connect to the Ethereum network from your browser. Metamask allows you to run Ethereum DApps right in your browser without running a full Ethereum node.</p>
+
+<p>Alternatively, you can run the official Ethereum browser <a href="https://github.com/ethereum/mist">Mist</a>.</p>
 <h3 id='acquire-test-eth'>Acquire Test ETH</h3>
 <p>Our smart contracts are currently deployed on the <code>Rinkeby testnet</code>. You will need to have test ETH to use this library. You can request test funds from the <a href="https://faucet.rinkeby.io/">Rinkeby faucet</a>. Do not yet send real ETH on the Origin network. Use Rinkeby testnet ETH instead.</p>
 
 <aside class="notice">
-Do not send real ETH on the Origin network. Use Rinkeby testnet ETH instead.
+Always confirm that you are on Rinkeby testnet when testing your DApp. Any Eth on mainnet that is sent to Origin contract addresses may be lost permanently.
 </aside>
 <h3 id='hello-world'>Hello World</h3>
+<p>Simply include the downloaded javascript library in your html to get started. </p>
+
 <blockquote>
 <p>Sample app</p>
 </blockquote>
@@ -449,64 +571,6 @@ may help confirm a physical address by sending a postcard with a special code to
 email address. Trusted third-parties can also verify government IDs like drivers
 licenses and passports which are required for certain types of listings like car
 rentals.</p>
-<h1 id='architecture'>Architecture</h1>
-<p>If you&#39;re new to the space, it may be helpful to first familiarize yourself with some of the core technologies that we&#39;re using to build Origin, such as <a href="#jsonschema">JSONSchema</a>, <a href="#ipfs">IPFS</a> and <a href="#ethereum">Ethereum</a></p>
-
-<p>Origin listings can be created using a frontend DApp to publish a JSON data object to
-any publicly writeable IPFS gateway. This JSON data object must conform to a set of
-standards and validation rules to be considered valid on the network. Users can
-optionally sign their listings cryptographically to verify their identity using
-publicly auditable proofs or trusted third parties. The IPFS gateway will publish the
-listing to the IPFS network making the listing instantly available via hundreds of
-distributed computers around the world to anyone who knows the content hash. The
-content hash of the listing is then sent to a smart contract which formally publishes
-the listing and stores pricing and availability information along with any specified
-booking rules and policies.</p>
-
-<p>Listings can easily be searched, browsed, and booked via a frontend DApp. Since we
-anticipate having too many listings to reasonably parse in a browser, the frontend
-DApp connects to an open-source indexing server of the user’s choosing, making it
-possible to search and filter the entire public corpus of listings. Once a listing has
-been selected, a user can make a booking by sending payment to the booking smart
-contract along with the IPFS hash of the chosen listing and the desired interval to
-book. The smart contract will verify that the booking is valid and handle the transfer
-of tokens between the buyer and the seller, including the escrow of funds when
-applicable.</p>
-
-<p>We anticipate most sellers will prefer to list their prices in fiat currencies which
-often have less volatility than digital currencies. To solve this challenge, both the
-booking smart contract and the indexing servers will use a common set of oracles and a
-shared algorithm to determine the exchange rate to be used. This allows prices to be
-shown to end users in their preferred fiat currencies while the correct amount of
-digital tokens are sent during the booking. A diverse set of oracles will be chosen to
-avoid introducing single points of failure into the system.</p>
-
-<p>Sellers are responsible for disclosing their preferred messaging channels in their
-listings through which buyers can contact them before, during, or after a transaction.
-Buyers can similarly indicate their preferred messaging channels when they complete a
-booking. Non-transactional communication between buyers and sellers will occur
-off-chain, and both parties are encouraged to only use secure and verifiable
-communication channels. For transactions that have a possibility of needing
-arbitration, a multisignature messaging channel should be chosen that includes the
-arbitrator in all communications.</p>
-
-<p>Once a transaction is complete, users are encouraged via economic incentives to leave
-feedback about the interaction in the form of a rating or review. Once again, the
-content is stored on IPFS and only the content hash is stored on Ethereum. Users are
-able to establish their reputations over time with verified transactions, building a
-unified reputation across multiple listing verticals. Buyers can use different wallets
-with varying levels of identity attached for sensitive transactions, or choose to only
-reveal their true identity to the seller while using a throw-away wallet.</p>
-
-<p>Listing policies around escrow, refunds, required deposits, and cancellations are set
-by the seller and are strictly enforced by the booking smart contract. Any exceptions
-to the policies must be handled directly off-chain by the two parties.</p>
-<h2 id='jsonschema'>JSONSchema</h2>
-<p><a href="http://json-schema.org/">Learn more about JSONSchema</a></p>
-<h2 id='ethereum'>Ethereum</h2>
-<p><a href="https://https//www.ethereum.org/">Learn more about Ethereum</a>.</p>
-<h2 id='ipfs'>IPFS</h2>
-<p><a href="https://github.com/ipfs">Learn more about IPFS</a>.</p>
 <h1 id='listing-schemas'>Listing Schemas</h1>
 <p>Since many unrelated developers will be reading and writing to
 the same data layer, it is essential that everyone adhere to common standards.
@@ -611,68 +675,11 @@ No issue is too small. Help us fix our tpyos!
 <p>We have a strong preference for hiring people who have already started contributing to the project. If you want a full time position on our team, your best shot is to engage with our team and start contributing code. It is very unlikely that we would offer you a full time position on our engineering team unless you&#39;ve had at least a couple approved pull requests first. </p>
 
 <p>If you are interested, check out <a href="https://angel.co/originprotocol/jobs">the Origin Protocol job listings</a>. If you&#39;d like to help in other ways, propose your ideas on the <a href="#slack">Origin Slack</a>.</p>
-<h1 id='errors'>Errors</h1>
-<aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
-
-<p>The Kittn API uses the following error codes:</p>
-
-<table><thead>
-<tr>
-<th>Error Code</th>
-<th>Meaning</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>400</td>
-<td>Bad Request -- Your request sucks.</td>
-</tr>
-<tr>
-<td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
-</tr>
-<tr>
-<td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
-</tr>
-<tr>
-<td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
-</tr>
-<tr>
-<td>500</td>
-<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
-</tr>
-</tbody></table>
 
       </div>
       <div class="dark-box">
           <div class="lang-selector">
                 <a href="#" data-language-name="html">html</a>
-                <a href="#" data-language-name="css">css</a>
                 <a href="#" data-language-name="javascript">javascript</a>
                 <a href="#" data-language-name="json">json</a>
           </div>
