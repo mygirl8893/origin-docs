@@ -1,0 +1,85 @@
+<h1 id='listings'>Listings</h1>
+<p>A listing is an offer from a seller to sell something.</p>
+
+<p>It is active until there are no more units available or its expiration date is reached.</p>
+<h2 id='create-a-listing'>Create a Listing</h2>
+<blockquote>
+<p>To create a listing</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">listingData</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="s2">"Kettlebell For Sale"</span><span class="p">,</span>
+  <span class="na">category</span><span class="p">:</span> <span class="s2">"Health and Beauty"</span><span class="p">,</span>
+  <span class="na">location</span><span class="p">:</span> <span class="s2">"San Fransisco, CA"</span><span class="p">,</span>
+  <span class="na">description</span><span class="p">:</span>
+    <span class="s2">"32kg gorilla kettlebell"</span><span class="p">,</span>
+  <span class="na">pictures</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="na">price</span><span class="p">:</span> <span class="mf">3.3</span>
+<span class="p">}</span>
+<span class="kr">const</span> <span class="nx">schema</span> <span class="o">=</span> <span class="s2">"for-sale"</span>
+<span class="kr">const</span> <span class="nx">transaction</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">listings</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">listingData</span><span class="p">,</span> <span class="nx">schema</span><span class="p">)</span>
+<span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">contractService</span><span class="p">.</span><span class="nx">waitTransactionFinished</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">tx</span><span class="p">)</span>
+</code></pre>
+<p>When you create a listing, the API will create both the IPFS data and the Listing contract on the blockchain.</p>
+
+<p>The fields used come from the listing schema definition used.</p>
+
+<p>The wallet used to create the listing is used as the seller.</p>
+
+<p>A listing will expire 60 days after its expiration date.</p>
+<h2 id='buy-a-listing'>Buy a Listing</h2>
+<blockquote>
+<p>To buy a listing</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">unitstoBuy</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="kr">const</span> <span class="nx">amountToSend</span> <span class="o">=</span> <span class="nx">listing</span><span class="p">.</span><span class="nx">price</span> <span class="o">*</span> <span class="nx">unitstoBuy</span>
+<span class="kr">const</span> <span class="nx">transaction</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">listings</span><span class="p">.</span><span class="nx">buy</span><span class="p">(</span>
+      <span class="nx">listing</span><span class="p">.</span><span class="nx">address</span><span class="p">,</span>
+      <span class="nx">unitstoBuy</span><span class="p">,</span>
+      <span class="nx">amountToSend</span>
+    <span class="p">)</span>
+<span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">contractService</span><span class="p">.</span><span class="nx">waitTransactionFinished</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">tx</span><span class="p">)</span>
+</code></pre>
+<p>Buy will create a new <code>Purchase</code> contract on the blockchain. This purchase contract will handle the rest of the transaction between the buyer and the seller.</p>
+<h2 id='close-a-listing'>Close a Listing</h2>
+<blockquote>
+<p>To close a listing</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">transaction</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">listings</span><span class="p">.</span><span class="nx">close</span><span class="p">(</span>
+      <span class="nx">listing</span><span class="p">.</span><span class="nx">address</span>
+    <span class="p">)</span>
+<span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">contractService</span><span class="p">.</span><span class="nx">waitTransactionFinished</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">tx</span><span class="p">)</span>
+</code></pre>
+<p>Closing a transaction will set the unitsAvailable to zero. This will stop any further purchases of that Listing.</p>
+<h2 id='get-a-listing'>Get a Listing</h2>
+<blockquote>
+<p>To get a listing</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">listing</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">listings</span><span class="p">.</span><span class="nx">getByIndex</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1">// Returns </span>
+<span class="p">{</span>
+  <span class="nl">name</span><span class="p">:</span> <span class="s2">"Kettlebell For Sale"</span><span class="p">,</span>
+  <span class="nx">category</span><span class="p">:</span> <span class="s2">"Health and Beauty"</span><span class="p">,</span>
+  <span class="nx">description</span><span class="p">:</span> <span class="s2">"32kg gorilla kettlebell"</span><span class="p">,</span>
+  <span class="nx">location</span><span class="p">:</span> <span class="s2">"San Fransisco, CA"</span><span class="p">,</span>
+  <span class="nx">pictures</span><span class="p">:</span> <span class="p">[],</span>
+
+  <span class="nx">address</span><span class="p">:</span> <span class="s2">"659cbb0e2411a44db63778987b1e22153c086a95eb6b18bdf89de078917abc63"</span><span class="p">,</span>
+  <span class="nx">index</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="nx">ipfsHash</span><span class="p">:</span> <span class="s2">"QmWZDcDq4aYGx9XmkPcx4mnKaGW2jCxf5tknrCtbfpJJFf"</span><span class="p">,</span>
+  <span class="nx">sellerAddress</span><span class="p">:</span> <span class="s2">"0f62d96d6675f32685bbdb8ac13cda7c23436f63efbb9d07700d8669ff12b7c4"</span><span class="p">,</span>
+  <span class="nx">price</span><span class="p">:</span> <span class="mf">0.004</span><span class="p">,</span>
+  <span class="nx">unitsAvailable</span><span class="p">:</span> <span class="mi">1</span>
+<span class="p">}</span>
+</code></pre>
+<p>Getting a listing will return the fields from the listing according to its listing schema.</p>
+
+<p>In addition, you&#39;ll have fields from the contract on the blockchain.</p>
+<h2 id='find-all-listing-indexes'>Find All Listing Indexes</h2>
+<blockquote>
+<p>To find all listing indexes</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">indexes</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">listings</span><span class="p">.</span><span class="nx">allIds</span><span class="p">()</span>
+<span class="c1">// Returns </span>
+<span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,...]</span>
+</code></pre>
+<p>You can get a simple list of all listing indexes in the registry, which will allow you to loop through fetch information about each Listing.</p>
