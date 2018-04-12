@@ -1,32 +1,14 @@
-<h1 id='authentication-amp-identity'>Authentication &amp; Identity</h1><h2 id='identity-verification'>Identity verification</h2>
+<h1 id='authentication-amp-identity'>Authentication &amp; Identity</h1><h2 id='identity-with-erc-725'>Identity with ERC 725</h2>
 <p>Users identities are tied to Ethereum addresses and your private keys are used as the sole method of authentication on the Origin platform.</p>
 
 <p>Users can always prove ownership of a wallet without sending funds, simply by signing a message using their private keys.</p>
 
-<p>Users can assume multiple identities by creating multiple wallets. In this manner, users can choose how much of their  off-line identities they wish to reveal to other users while participating on the Origin network.</p>
+<p>Users can assume multiple identities by creating multiple wallets. In this manner, users can choose how much of their off-line identities they wish to reveal to other users while participating on the Origin network.</p>
 
-<p>Origin allows users to identify themselves using <a href="#publicly-auditable-proofs">publicly auditable proofs</a> and attestations from <a href="#trusted-third-parties">trusted third-parties</a>.</p>
+<p>We are using the <a href="https://github.com/ethereum/EIPs/issues/725">ERC 725</a> identity standard as proposed by <a href="https://github.com/frozeman">Fabian Vogelsteller</a> as the basis for identity on the Origin platform. We&#39;ve built an <a href="https://erc725.originprotocol.com">identity playground</a> to help people understand ERC 725 and how it works. </p>
+
+<p>The Origin run bridge server will provide identity attestations as a community service. Origin identities are portable not only across marketplaces built on our platform, but also with other DApps that are supporting the ERC 725 standard.</p>
 
 <aside class="notice">
 Make sure to safely store your private keys. We can't help if you lose them.
 </aside>
-<h2 id='publicly-auditable-proofs'>Publicly-Auditable Proofs</h2>
-<p>A user can choose to identify themselves on other platforms using
-publicly auditable proofs. A user can post their public key on
-Facebook or Twitter and then cryptographically sign their listing using their
-private key. Users can then include links in their listings to the Facebook post,
-tweet or website that displays their public key. In this manner, anyone can
-independently verify the poster’s identity, or at least confirm that they control
-those accounts or domain. Origin.js simplifies this process for users by
-making it easy to generate these proofs and verify the proofs of other users.
-As people share their identity proofs on Facebook and Twitter, it will help 
-create network effects as friends learn about Origin and decide to participate.</p>
-<h2 id='trusted-third-parties'>Trusted Third-Parties</h2>
-<p>Users can also collect verifications from trusted third-parties like
-<a href="https://www.civic.com/">Civic</a>, <a href="https://www.uport.me/">uPort</a> or the Origin Foundation.
-These third-party providers can provide identity verification 
-that interfaces with the offline world. For example, a third-party identity provider 
-may help confirm a physical address by sending a postcard with a special code to that address and then having the user enter that code on a website. Similar methods can be used to confirm control of a phone number or
-email address. Trusted third-parties can also verify government IDs like drivers
-licenses and passports which are required for certain types of listings like car
-rentals.</p>

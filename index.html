@@ -267,7 +267,7 @@
                     <a href="#download-origin" class="toc-h2 toc-link" data-title="Download Origin">Download Origin</a>
                   </li>
                   <li>
-                    <a href="#use-an-ethereum-browser" class="toc-h2 toc-link" data-title="Use an Ethereum browser">Use an Ethereum browser</a>
+                    <a href="#use-an-ethereum-enabled-browser" class="toc-h2 toc-link" data-title="Use an Ethereum-enabled browser">Use an Ethereum-enabled browser</a>
                   </li>
                   <li>
                     <a href="#acquire-test-eth" class="toc-h2 toc-link" data-title="Acquire Test ETH">Acquire Test ETH</a>
@@ -281,13 +281,7 @@
             <a href="#authentication-amp-identity" class="toc-h1 toc-link" data-title="Authentication &amp; Identity">Authentication &amp; Identity</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#identity-verification" class="toc-h2 toc-link" data-title="Identity verification">Identity verification</a>
-                  </li>
-                  <li>
-                    <a href="#publicly-auditable-proofs" class="toc-h2 toc-link" data-title="Publicly-Auditable Proofs">Publicly-Auditable Proofs</a>
-                  </li>
-                  <li>
-                    <a href="#trusted-third-parties" class="toc-h2 toc-link" data-title="Trusted Third-Parties">Trusted Third-Parties</a>
+                    <a href="#identity-with-erc-725" class="toc-h2 toc-link" data-title="Identity with ERC 725">Identity with ERC 725</a>
                   </li>
               </ul>
           </li>
@@ -394,7 +388,7 @@
 <p>Origin provides a simple and powerful javascript library for developers to build decentralized marketplaces, allowing buyers and sellers to meet and transact without requiring any trusted intermediaries.</p>
 <h3 id='usage'>Usage</h3>
 <blockquote>
-<p>Visit our Github: <a href="https://github.com/OriginProtocol/origin-js">https://github.com/OriginProtocol/origin-js</a></p>
+<p>Visit our Github: <a href="https://github.com/OriginProtocol">https://github.com/OriginProtocol</a></p>
 </blockquote>
 
 <p>This API documentation will explain how developers can use the origin.js library to create and manage decentralized marketplaces that are built on top of <a href="https://github.com/ipfs">IPFS</a> and the <a href="https://https//www.ethereum.org/">Ethereum network</a>.</p>
@@ -407,7 +401,7 @@
 <li>Queries against open-source indexing servers to render content in decentralized applications (DApps)</li>
 </ul>
 
-<p>Origin.js will enable developers to create DApps that onboard new users to the Origin platform, add new listings to the listings registry, create booking contracts, close out bookings (transfer funds, write reviews, etc.), and more.</p>
+<p>Origin.js enables developers to create DApps that onboard new users to the Origin platform, add new listings to the listings registry, create booking contracts, close out bookings (transfer funds, write reviews, etc.), and more.</p>
 <h3 id='notes'>Notes</h3>
 <p>Please note this project is still in heavy development and many of the features described below have not been implemented yet. This library should not be considered as production-ready.</p>
 
@@ -427,7 +421,7 @@
 <h3 id='listing-registry'>Listing Registry</h3>
 <p>The listing registry stores all valid Origin listings, from cars for rent to freelance design services. Developers will be able to create new listings in JSON, then push them to the Origin listing registry. Under the covers, Origin.js handles the creation of new IPFS content files for static metadata and new entries to the Origin listing registry smart contract.</p>
 
-<p>Note that Origin.js does not support browsing and searching the listing registry directly. It is recommended that developers use our open-source server-side indexing service (or build your own) to efficiently query the blockchain.</p>
+<p>Note that Origin.js does not support browsing and searching the listing registry directly. It is recommended that developers use our open-source bridge server to efficiently query the blockchain.</p>
 <h3 id='booking-contracts'>Booking Contracts</h3>
 <p>Booking contracts are automatically created when buyers book listings on Origin-powered DApps. These individual smart contract instances are generated and deployed with rules around price, reservation time, and payment rules. For certain listing types, Origin.js will also generate additional contract code for arbitration, escrow, deposits, payment schedules, etc.</p>
 <h3 id='contract-modularity'>Contract Modularity</h3>
@@ -450,7 +444,7 @@ booking rules and policies.</p>
 
 <p>Listings can easily be searched, browsed, and booked via a frontend DApp. Since we
 anticipate having too many listings to reasonably parse in a browser, the frontend
-DApp connects to an open-source indexing server of the user’s choosing, making it
+DApp connects to an open-source bridge server of the user’s choosing, making it
 possible to search and filter the entire public corpus of listings. Once a listing has
 been selected, a user can make a booking by sending payment to the booking smart
 contract along with the IPFS hash of the chosen listing and the desired interval to
@@ -460,7 +454,7 @@ applicable.</p>
 
 <p>We anticipate most sellers will prefer to list their prices in fiat currencies which
 often have less volatility than digital currencies. To solve this challenge, both the
-booking smart contract and the indexing servers will use a common set of oracles and a
+booking smart contract and the bridge servers will use a common set of oracles and a
 shared algorithm to determine the exchange rate to be used. This allows prices to be
 shown to end users in their preferred fiat currencies while the correct amount of
 digital tokens are sent during the booking. A diverse set of oracles will be chosen to
@@ -493,13 +487,13 @@ to the policies must be handled directly off-chain by the two parties.</p>
 <h3 id='ipfs'>IPFS</h3>
 <p><a href="https://github.com/ipfs">Learn more about IPFS</a></p>
 <h1 id='getting-started'>Getting started</h1><h3 id='download-origin'>Download Origin</h3>
-<p>Origin.js is under active development. Our upcoming 0.1 release will be available at our <a href="https://github.com/OriginProtocol/origin-js">Github repo</a> soon.</p>
-<h3 id='use-an-ethereum-browser'>Use an Ethereum browser</h3>
-<p>For testing and interacting with your DApp, you will need to use an Ethereum-enabled browser. Currently, we recommend using Metamask with Chrome.</p>
-
-<p>Install the <a href="https://metamask.io/">Metamask Chrome Browser Extension</a>. This will enable you to connect to the Ethereum network from your browser. Metamask allows you to run Ethereum DApps right in your browser without running a full Ethereum node.</p>
+<p>Origin.js is under active development. Our latest releases are available on our <a href="https://github.com/OriginProtocol">Github</a>.</p>
+<h3 id='use-an-ethereum-enabled-browser'>Use an Ethereum-enabled browser</h3>
+<p>For testing and interacting with your DApp, you will need to use a browser that supports Web3. We recommend using the <a href="https://metamask.io/">Metamask Chrome Browser Extension</a>. This will enable you to connect to the Ethereum network from your browser. Metamask allows you to run Ethereum DApps right in your browser without running a full Ethereum node.</p>
 
 <p>Alternatively, you can run the official Ethereum browser <a href="https://github.com/ethereum/mist">Mist</a>.</p>
+
+<p>On mobile, we recommend trying <a href="https://www.toshi.org/">Toshi</a>, <a href="https://www.cipherbrowser.com/">Cipher</a> and <a href="https://trustwalletapp.com/features/trust-browser">Trust Wallet</a>.</p>
 <h3 id='acquire-test-eth'>Acquire Test ETH</h3>
 <p>Our smart contracts are currently deployed on the <code>Rinkeby testnet</code>. You will need to have test ETH to use this library. You can request test funds from the <a href="https://faucet.rinkeby.io/">Rinkeby faucet</a>. Do not yet send real ETH on the Origin network. Use Rinkeby testnet ETH instead.</p>
 
@@ -532,38 +526,20 @@ Always confirm that you are on Rinkeby testnet when testing your DApp. Any Eth o
 <span class="kr">const</span> <span class="nx">schema</span> <span class="o">=</span> <span class="s2">"for-sale"</span>
 <span class="kr">const</span> <span class="nx">transaction</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">listings</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">listingData</span><span class="p">,</span> <span class="nx">schema</span><span class="p">)</span>
 <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">contractService</span><span class="p">.</span><span class="nx">waitTransactionFinished</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">tx</span><span class="p">)</span>
-</code></pre><h1 id='authentication-amp-identity'>Authentication &amp; Identity</h1><h2 id='identity-verification'>Identity verification</h2>
+</code></pre><h1 id='authentication-amp-identity'>Authentication &amp; Identity</h1><h2 id='identity-with-erc-725'>Identity with ERC 725</h2>
 <p>Users identities are tied to Ethereum addresses and your private keys are used as the sole method of authentication on the Origin platform.</p>
 
 <p>Users can always prove ownership of a wallet without sending funds, simply by signing a message using their private keys.</p>
 
-<p>Users can assume multiple identities by creating multiple wallets. In this manner, users can choose how much of their  off-line identities they wish to reveal to other users while participating on the Origin network.</p>
+<p>Users can assume multiple identities by creating multiple wallets. In this manner, users can choose how much of their off-line identities they wish to reveal to other users while participating on the Origin network.</p>
 
-<p>Origin allows users to identify themselves using <a href="#publicly-auditable-proofs">publicly auditable proofs</a> and attestations from <a href="#trusted-third-parties">trusted third-parties</a>.</p>
+<p>We are using the <a href="https://github.com/ethereum/EIPs/issues/725">ERC 725</a> identity standard as proposed by <a href="https://github.com/frozeman">Fabian Vogelsteller</a> as the basis for identity on the Origin platform. We&#39;ve built an <a href="https://erc725.originprotocol.com">identity playground</a> to help people understand ERC 725 and how it works. </p>
+
+<p>The Origin run bridge server will provide identity attestations as a community service. Origin identities are portable not only across marketplaces built on our platform, but also with other DApps that are supporting the ERC 725 standard.</p>
 
 <aside class="notice">
 Make sure to safely store your private keys. We can't help if you lose them.
 </aside>
-<h2 id='publicly-auditable-proofs'>Publicly-Auditable Proofs</h2>
-<p>A user can choose to identify themselves on other platforms using
-publicly auditable proofs. A user can post their public key on
-Facebook or Twitter and then cryptographically sign their listing using their
-private key. Users can then include links in their listings to the Facebook post,
-tweet or website that displays their public key. In this manner, anyone can
-independently verify the poster’s identity, or at least confirm that they control
-those accounts or domain. Origin.js simplifies this process for users by
-making it easy to generate these proofs and verify the proofs of other users.
-As people share their identity proofs on Facebook and Twitter, it will help 
-create network effects as friends learn about Origin and decide to participate.</p>
-<h2 id='trusted-third-parties'>Trusted Third-Parties</h2>
-<p>Users can also collect verifications from trusted third-parties like
-<a href="https://www.civic.com/">Civic</a>, <a href="https://www.uport.me/">uPort</a> or the Origin Foundation.
-These third-party providers can provide identity verification 
-that interfaces with the offline world. For example, a third-party identity provider 
-may help confirm a physical address by sending a postcard with a special code to that address and then having the user enter that code on a website. Similar methods can be used to confirm control of a phone number or
-email address. Trusted third-parties can also verify government IDs like drivers
-licenses and passports which are required for certain types of listings like car
-rentals.</p>
 <h1 id='listing'>Listing</h1>
 <p>A listing is an offer from a seller to sell something.</p>
 
@@ -786,7 +762,7 @@ No issue is too small. Help us fix our tpyos!
 
 <ul>
 <li><a href="https://github.com/OriginProtocol/docs/issues">Docs issues</a></li>
-<li><a href="https://github.com/OriginProtocol/origin-js/issues">Origin.js issues</a></li>
+<li><a href="https://github.com/OriginProtocol/platform/issues">Platform issues (origin.js &amp; Solidity contracts)</a></li>
 <li><a href="https://github.com/OriginProtocol/demo-dapp/issues">Demo Dapp issues</a></li>
 <li><a href="https://github.com/OriginProtocol/company-website/issues">Company website issues</a></li>
 </ul>
