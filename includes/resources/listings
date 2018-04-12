@@ -1,8 +1,8 @@
-<h1 id='listings'>Listings</h1>
+<h1 id='listing'>Listing</h1>
 <p>A listing is an offer from a seller to sell something.</p>
 
 <p>It is active until there are no more units available or its expiration date is reached.</p>
-<h2 id='create-a-listing'>Create a Listing</h2>
+<h2 id='create'>create</h2>
 <blockquote>
 <p>To create a listing</p>
 </blockquote>
@@ -26,7 +26,7 @@
 <p>The wallet used to create the listing is used as the seller.</p>
 
 <p>A listing will expire 60 days after its expiration date.</p>
-<h2 id='buy-a-listing'>Buy a Listing</h2>
+<h2 id='buy'>buy</h2>
 <blockquote>
 <p>To buy a listing</p>
 </blockquote>
@@ -40,7 +40,7 @@
 <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">contractService</span><span class="p">.</span><span class="nx">waitTransactionFinished</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">tx</span><span class="p">)</span>
 </code></pre>
 <p>Buy will create a new <code>Purchase</code> contract on the blockchain. This purchase contract will handle the rest of the transaction between the buyer and the seller.</p>
-<h2 id='close-a-listing'>Close a Listing</h2>
+<h2 id='close'>close</h2>
 <blockquote>
 <p>To close a listing</p>
 </blockquote>
@@ -49,8 +49,10 @@
     <span class="p">)</span>
 <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">contractService</span><span class="p">.</span><span class="nx">waitTransactionFinished</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">tx</span><span class="p">)</span>
 </code></pre>
+<p>This method is <strong>called by the seller</strong>.</p>
+
 <p>Closing a transaction will set the unitsAvailable to zero. This will stop any further purchases of that Listing.</p>
-<h2 id='get-a-listing'>Get a Listing</h2>
+<h2 id='getbyindex'>getByIndex</h2>
 <blockquote>
 <p>To get a listing</p>
 </blockquote>
@@ -74,7 +76,7 @@
 <p>Getting a listing will return the fields from the listing according to its listing schema.</p>
 
 <p>In addition, you&#39;ll have fields from the contract on the blockchain.</p>
-<h2 id='find-all-listing-indexes'>Find All Listing Indexes</h2>
+<h2 id='allids'>allIds</h2>
 <blockquote>
 <p>To find all listing indexes</p>
 </blockquote>

@@ -292,22 +292,39 @@
               </ul>
           </li>
           <li>
-            <a href="#listings" class="toc-h1 toc-link" data-title="Listings">Listings</a>
+            <a href="#listing" class="toc-h1 toc-link" data-title="Listing">Listing</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#create-a-listing" class="toc-h2 toc-link" data-title="Create a Listing">Create a Listing</a>
+                    <a href="#create" class="toc-h2 toc-link" data-title="create">create</a>
                   </li>
                   <li>
-                    <a href="#buy-a-listing" class="toc-h2 toc-link" data-title="Buy a Listing">Buy a Listing</a>
+                    <a href="#buy" class="toc-h2 toc-link" data-title="buy">buy</a>
                   </li>
                   <li>
-                    <a href="#close-a-listing" class="toc-h2 toc-link" data-title="Close a Listing">Close a Listing</a>
+                    <a href="#close" class="toc-h2 toc-link" data-title="close">close</a>
                   </li>
                   <li>
-                    <a href="#get-a-listing" class="toc-h2 toc-link" data-title="Get a Listing">Get a Listing</a>
+                    <a href="#getbyindex" class="toc-h2 toc-link" data-title="getByIndex">getByIndex</a>
                   </li>
                   <li>
-                    <a href="#find-all-listing-indexes" class="toc-h2 toc-link" data-title="Find All Listing Indexes">Find All Listing Indexes</a>
+                    <a href="#allids" class="toc-h2 toc-link" data-title="allIds">allIds</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#purchase" class="toc-h1 toc-link" data-title="Purchase">Purchase</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#pay" class="toc-h2 toc-link" data-title="pay">pay</a>
+                  </li>
+                  <li>
+                    <a href="#sellerconfirmshipped" class="toc-h2 toc-link" data-title="sellerConfirmShipped">sellerConfirmShipped</a>
+                  </li>
+                  <li>
+                    <a href="#buyerconfirmreceipt" class="toc-h2 toc-link" data-title="buyerConfirmReceipt">buyerConfirmReceipt</a>
+                  </li>
+                  <li>
+                    <a href="#sellergetpayout" class="toc-h2 toc-link" data-title="sellerGetPayout">sellerGetPayout</a>
                   </li>
               </ul>
           </li>
@@ -325,52 +342,6 @@
                   </li>
                   <li>
                     <a href="#extensibility" class="toc-h2 toc-link" data-title="Extensibility">Extensibility</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#objects" class="toc-h1 toc-link" data-title="Objects">Objects</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#user" class="toc-h2 toc-link" data-title="User">User</a>
-                  </li>
-                  <li>
-                    <a href="#listing" class="toc-h2 toc-link" data-title="Listing">Listing</a>
-                  </li>
-                  <li>
-                    <a href="#booking" class="toc-h2 toc-link" data-title="Booking">Booking</a>
-                  </li>
-                  <li>
-                    <a href="#feedback" class="toc-h2 toc-link" data-title="Feedback">Feedback</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#functions" class="toc-h1 toc-link" data-title="Functions">Functions</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#browse-listings" class="toc-h2 toc-link" data-title="Browse Listings">Browse Listings</a>
-                  </li>
-                  <li>
-                    <a href="#search-listings" class="toc-h2 toc-link" data-title="Search Listings">Search Listings</a>
-                  </li>
-                  <li>
-                    <a href="#create-listing" class="toc-h2 toc-link" data-title="Create Listing">Create Listing</a>
-                  </li>
-                  <li>
-                    <a href="#update-listing" class="toc-h2 toc-link" data-title="Update Listing">Update Listing</a>
-                  </li>
-                  <li>
-                    <a href="#deactivate-listing" class="toc-h2 toc-link" data-title="Deactivate Listing">Deactivate Listing</a>
-                  </li>
-                  <li>
-                    <a href="#book-listing" class="toc-h2 toc-link" data-title="Book Listing">Book Listing</a>
-                  </li>
-                  <li>
-                    <a href="#leave-feedback" class="toc-h2 toc-link" data-title="Leave Feedback">Leave Feedback</a>
-                  </li>
-                  <li>
-                    <a href="#messaging" class="toc-h2 toc-link" data-title="Messaging">Messaging</a>
                   </li>
               </ul>
           </li>
@@ -547,16 +518,20 @@ Always confirm that you are on Rinkeby testnet when testing your DApp. Any Eth o
   <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"origin.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
 <span class="nt">&lt;/body&gt;</span>
 <span class="nt">&lt;/html&gt;</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kd">var</span> <span class="nx">origin</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Origin</span><span class="p">();</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">origin</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Origin</span><span class="p">();</span>
 
-<span class="kd">var</span> <span class="nx">user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">();</span>
-<span class="nx">user</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="s2">"Joe"</span>
-
-<span class="kd">var</span> <span class="nx">listing</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Listing</span><span class="p">();</span>
-<span class="nx">listing</span><span class="p">.</span><span class="nx">owner</span> <span class="o">=</span> <span class="nx">user</span>
-
-<span class="nx">listing</span><span class="p">.</span><span class="nx">save</span><span class="p">()</span>
-
+<span class="kr">const</span> <span class="nx">listingData</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="s2">"Kettlebell For Sale"</span><span class="p">,</span>
+  <span class="na">category</span><span class="p">:</span> <span class="s2">"Health and Beauty"</span><span class="p">,</span>
+  <span class="na">location</span><span class="p">:</span> <span class="s2">"San Fransisco, CA"</span><span class="p">,</span>
+  <span class="na">description</span><span class="p">:</span>
+    <span class="s2">"32kg gorilla kettlebell. Mint condition."</span><span class="p">,</span>
+  <span class="na">pictures</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="na">price</span><span class="p">:</span> <span class="mf">0.134</span>
+<span class="p">}</span>
+<span class="kr">const</span> <span class="nx">schema</span> <span class="o">=</span> <span class="s2">"for-sale"</span>
+<span class="kr">const</span> <span class="nx">transaction</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">listings</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">listingData</span><span class="p">,</span> <span class="nx">schema</span><span class="p">)</span>
+<span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">contractService</span><span class="p">.</span><span class="nx">waitTransactionFinished</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">tx</span><span class="p">)</span>
 </code></pre><h1 id='authentication-amp-identity'>Authentication &amp; Identity</h1><h2 id='identity-verification'>Identity verification</h2>
 <p>Users identities are tied to Ethereum addresses and your private keys are used as the sole method of authentication on the Origin platform.</p>
 
@@ -589,11 +564,11 @@ may help confirm a physical address by sending a postcard with a special code to
 email address. Trusted third-parties can also verify government IDs like drivers
 licenses and passports which are required for certain types of listings like car
 rentals.</p>
-<h1 id='listings'>Listings</h1>
+<h1 id='listing'>Listing</h1>
 <p>A listing is an offer from a seller to sell something.</p>
 
 <p>It is active until there are no more units available or its expiration date is reached.</p>
-<h2 id='create-a-listing'>Create a Listing</h2>
+<h2 id='create'>create</h2>
 <blockquote>
 <p>To create a listing</p>
 </blockquote>
@@ -617,7 +592,7 @@ rentals.</p>
 <p>The wallet used to create the listing is used as the seller.</p>
 
 <p>A listing will expire 60 days after its expiration date.</p>
-<h2 id='buy-a-listing'>Buy a Listing</h2>
+<h2 id='buy'>buy</h2>
 <blockquote>
 <p>To buy a listing</p>
 </blockquote>
@@ -631,7 +606,7 @@ rentals.</p>
 <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">contractService</span><span class="p">.</span><span class="nx">waitTransactionFinished</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">tx</span><span class="p">)</span>
 </code></pre>
 <p>Buy will create a new <code>Purchase</code> contract on the blockchain. This purchase contract will handle the rest of the transaction between the buyer and the seller.</p>
-<h2 id='close-a-listing'>Close a Listing</h2>
+<h2 id='close'>close</h2>
 <blockquote>
 <p>To close a listing</p>
 </blockquote>
@@ -640,8 +615,10 @@ rentals.</p>
     <span class="p">)</span>
 <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">contractService</span><span class="p">.</span><span class="nx">waitTransactionFinished</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">tx</span><span class="p">)</span>
 </code></pre>
+<p>This method is <strong>called by the seller</strong>.</p>
+
 <p>Closing a transaction will set the unitsAvailable to zero. This will stop any further purchases of that Listing.</p>
-<h2 id='get-a-listing'>Get a Listing</h2>
+<h2 id='getbyindex'>getByIndex</h2>
 <blockquote>
 <p>To get a listing</p>
 </blockquote>
@@ -665,7 +642,7 @@ rentals.</p>
 <p>Getting a listing will return the fields from the listing according to its listing schema.</p>
 
 <p>In addition, you&#39;ll have fields from the contract on the blockchain.</p>
-<h2 id='find-all-listing-indexes'>Find All Listing Indexes</h2>
+<h2 id='allids'>allIds</h2>
 <blockquote>
 <p>To find all listing indexes</p>
 </blockquote>
@@ -674,7 +651,63 @@ rentals.</p>
 <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,...]</span>
 </code></pre>
 <p>You can get a simple list of all listing indexes in the registry, which will allow you to loop through fetch information about each Listing.</p>
+<h1 id='purchase'>Purchase</h1>
+<p>A <strong>Purchase</strong> is a single transaction between a buyer and seller. A single <a href="#listing">Listing</a> with multiple items for sale could have many Purchases related to it, one for each buyer.</p>
+
+<p>A Purchase is a stage machine. </p>
+
+<p>When a Listing is purchased, a new Purchase contract is created. In the simplest, success case, a Purchase moves through the following stages:</p>
+
+<p><code>shipping_pending</code> → <code>buyer_pending</code> → <code>seller_pending</code> → <code>complete</code></p>
+<h2 id='pay'>pay</h2>
+<blockquote>
+<p>To pay eth into a purchase</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">transaction</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">purchases</span><span class="p">.</span><span class="nx">pay</span><span class="p">(</span><span class="nx">purchase_address</span><span class="p">,</span> <span class="nx">amountWei</span><span class="p">)</span>
+<span class="nx">await</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">isFinished</span><span class="p">()</span>
+</code></pre>
+<p>This method is <strong>called by the buyer</strong> when the Purchase is in the <strong>&quot;awaiting_payment&quot;</strong> stage.</p>
+
+<p>If the total amount in the Purchase contract is now equal to, or greater than the price of the sale, then the Purchase will change to the <strong>&quot;shipping_pending&quot;</strong> stage.</p>
+
+<p><em>You don&#39;t currently need to use this method currently. Purchases are fully funded when bought from Listings.</em></p>
+<h2 id='sellerconfirmshipped'>sellerConfirmShipped</h2>
+<blockquote>
+<p>To mark a purchase as shipped</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">transaction</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">purchases</span><span class="p">.</span><span class="nx">sellerConfirmShipped</span><span class="p">(</span><span class="nx">purchase_address</span><span class="p">)</span>
+<span class="nx">await</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">isFinished</span><span class="p">()</span>
+</code></pre>
+<p>This method is <strong>called by the seller</strong> when the Purchase is in the <strong>&quot;shipping_pending&quot;</strong> stage.</p>
+
+<p>The Purchase will change to the <strong>&quot;buyer_pending&quot;</strong> stage. A 21 day timer will start for the buyer to mark the purchase as received. If the buyer does not market the purchase received in this time, it will automatically be marked received at the end of 21 days.</p>
+<h2 id='buyerconfirmreceipt'>buyerConfirmReceipt</h2>
+<blockquote>
+<p>To mark a purchase as received</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">transaction</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">purchases</span><span class="p">.</span><span class="nx">buyerConfirmReceipt</span><span class="p">(</span><span class="nx">purchase_address</span><span class="p">)</span>
+<span class="nx">await</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">isFinished</span><span class="p">()</span>
+</code></pre>
+<p>This method is <strong>called by the buyer</strong> when the Purchase is in the <strong>&quot;buyer_pending&quot;</strong> stage.</p>
+
+<p>The Purchase will change to the <strong>&quot;seller_pending&quot;</strong> stage.</p>
+<h2 id='sellergetpayout'>sellerGetPayout</h2>
+<blockquote>
+<p>To mark a purchase as received</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">transaction</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">purchases</span><span class="p">.</span><span class="nx">sellerGetPayout</span><span class="p">(</span><span class="nx">purchase_address</span><span class="p">)</span>
+<span class="nx">await</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">isFinished</span><span class="p">()</span>
+</code></pre>
+<p>This method is <strong>called by the seller</strong> when the Purchase is in the <strong>&quot;seller_pending&quot;</strong> stage.</p>
+
+<p>The seller will receive all eth value on the contract.</p>
+
+<p>The Purchase will change to the <strong>&quot;complete&quot;</strong> stage.</p>
 <h1 id='listing-schemas'>Listing Schemas</h1>
+<aside class="warning">
+This section contains out of date, draft material.
+</aside>
+
 <p>Since many unrelated developers will be reading and writing to
 the same data layer, it is essential that everyone adhere to common standards.
 We will publish and maintain the rules for what constitutes a “valid Origin
@@ -699,13 +732,7 @@ use-cases.</p>
 <li>International Phone Numbers</li>
 <li>Other Metadata</li>
 </ul>
-<h2 id='extensibility'>Extensibility</h2><h1 id='objects'>Objects</h1><h2 id='user'>User</h2><h2 id='listing'>Listing</h2><h2 id='booking'>Booking</h2><h2 id='feedback'>Feedback</h2><h3 id='ratings'>Ratings</h3>
-<p>1-5 </p>
-<h3 id='reviews'>Reviews</h3>
-<p>String</p>
-<h3 id='comments'>Comments</h3>
-<p>String</p>
-<h1 id='functions'>Functions</h1><h2 id='browse-listings'>Browse Listings</h2><h2 id='search-listings'>Search Listings</h2><h2 id='create-listing'>Create Listing</h2><h2 id='update-listing'>Update Listing</h2><h2 id='deactivate-listing'>Deactivate Listing</h2><h2 id='book-listing'>Book Listing</h2><h2 id='leave-feedback'>Leave Feedback</h2><h2 id='messaging'>Messaging</h2><h1 id='getting-help'>Getting help</h1><h2 id='discord'>Discord</h2>
+<h2 id='extensibility'>Extensibility</h2><h1 id='getting-help'>Getting help</h1><h2 id='discord'>Discord</h2>
 <p>Our team collaboration is done in public and our company Discord is open to all. If you have questions or need help getting started, our <a href="https://www.originprotocol.com/discord">Discord #engineering channel</a> is a great place to get assistance from our team of engineers and developers.</p>
 <h2 id='email'>Email</h2>
 <p>You can also reach us by email at <a href="mailto:support@originprotocol.com">support@originprotocol.com</a>.</p>
