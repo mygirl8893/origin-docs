@@ -2,9 +2,9 @@
 <p>A listing is an offer from a seller to sell something.</p>
 
 <p>It is active until there are no more units available or its expiration date is reached.</p>
-<h2 id='get'>get</h2>
+<h2 id='listing-get'>get</h2>
 <blockquote>
-<p>To get a listing</p>
+<p>To get a listing by address</p>
 </blockquote>
 <pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">listingAddress</span> <span class="o">=</span> <span class="s2">"0x061b8d5f9e432e6b23d79fac02e5792eb8746ce5"</span>
 <span class="kr">const</span> <span class="nx">listing</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">listings</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">listingAddress</span><span class="p">)</span>
@@ -27,9 +27,9 @@
 <span class="p">}</span>
 </code></pre>
 <p>This will return information about the listing, combining information from IPFS and the blockchain. In the future, fields returned may differ based on the listing&#39;s schema.</p>
-<h2 id='getbyindex'>getByIndex</h2>
+<h2 id='listing-getbyindex'>getByIndex</h2>
 <blockquote>
-<p>To get a listing</p>
+<p>To get a listing by index position</p>
 </blockquote>
 <pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">listing</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">listings</span><span class="p">.</span><span class="nx">getByIndex</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="c1">// Returns </span>
@@ -51,7 +51,7 @@
 <p><strong>This method is deprecated</strong>, and will be removed soon.  Use <code>get</code> instead.</p>
 
 <p>This will return information about the listing, combining information from IPFS and the blockchain. In the future, fields returned may differ based on the listing&#39;s schema.</p>
-<h2 id='create'>create</h2>
+<h2 id='listing-create'>create</h2>
 <blockquote>
 <p>To create a listing</p>
 </blockquote>
@@ -75,7 +75,7 @@
 <p>The wallet used to create the listing is used as the seller.</p>
 
 <p>A listing will expire 60 days after its expiration date.</p>
-<h2 id='buy'>buy</h2>
+<h2 id='listing-buy'>buy</h2>
 <blockquote>
 <p>To buy a listing</p>
 </blockquote>
@@ -89,7 +89,7 @@
 <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">contractService</span><span class="p">.</span><span class="nx">waitTransactionFinished</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">tx</span><span class="p">)</span>
 </code></pre>
 <p>Buy will create a new <code>Purchase</code> contract on the blockchain. This purchase contract will handle the rest of the transaction between the buyer and the seller.</p>
-<h2 id='close'>close</h2>
+<h2 id='listing-close'>close</h2>
 <blockquote>
 <p>To close a listing</p>
 </blockquote>
@@ -101,7 +101,7 @@
 <p>This method is <strong>called by the seller</strong>.</p>
 
 <p>Closing a transaction will set the unitsAvailable to zero. This will stop any further purchases of that Listing.</p>
-<h2 id='allids'>allIds</h2>
+<h2 id='listing-allids'>allIds</h2>
 <blockquote>
 <p>To find all listing indexes</p>
 </blockquote>
@@ -110,3 +110,23 @@
 <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,...]</span>
 </code></pre>
 <p>You can get a simple list of all listing indexes in the registry, which will allow you to loop through fetch information about each Listing.</p>
+<h2 id='listing-purchaseslength'>purchasesLength</h2>
+<blockquote>
+<p>To find the number of purchases for a listing</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">listingAddress</span> <span class="o">=</span> <span class="s2">"0xbe3a878bfc1e1527858756c062fbfe0db069c459"</span>
+<span class="kr">const</span> <span class="nx">length</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">listings</span><span class="p">.</span><span class="nx">purchasesLength</span><span class="p">(</span><span class="nx">listingAddress</span><span class="p">)</span>
+<span class="c1">// Returns </span>
+<span class="mi">4</span>
+</code></pre>
+<p>This will return the number of purchases that have occurred for a given listing address.</p>
+<h2 id='listing-purchaseaddressbyindex'>purchaseAddressByIndex</h2>
+<blockquote>
+<p>To find a purchase address for a listing</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">listingAddress</span> <span class="o">=</span> <span class="s2">"0xbe3a878bfc1e1527858756c062fbfe0db069c459"</span>
+<span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">listings</span><span class="p">.</span><span class="nx">purchaseAddressByIndex</span><span class="p">(</span><span class="nx">listingAddress</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="c1">// Returns </span>
+<span class="s2">"0x9deee0195f88caf7dee2fa8a6777f8236d847ef8"</span>
+</code></pre>
+<p>For listings that have one or more purchases, you can get the purchase address at a given index position.</p>

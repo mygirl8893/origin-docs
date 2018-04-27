@@ -6,7 +6,7 @@
 <p>A Purchase is a state machine that moves through stages. In the simplest, success case, a Purchase moves through the following stages:</p>
 
 <p><code>shipping_pending</code> → <code>buyer_pending</code> → <code>seller_pending</code> → <code>complete</code></p>
-<h2 id='get'>get</h2>
+<h2 id='purchase-get'>get</h2>
 <blockquote>
 <p>To get a purchase</p>
 </blockquote>
@@ -23,7 +23,7 @@
 <span class="p">}</span>
 </code></pre>
 <p>This will return information about the purchase.</p>
-<h2 id='pay'>pay</h2>
+<h2 id='purchase-pay'>pay</h2>
 <blockquote>
 <p>To pay eth into a purchase</p>
 </blockquote>
@@ -35,7 +35,7 @@
 <p>If the total amount in the Purchase contract is now equal to, or greater than the price of the sale, then the Purchase will change to the <strong>&quot;shipping_pending&quot;</strong> stage.</p>
 
 <p><em>You don&#39;t currently need to use this method currently. Purchases are fully funded when bought from Listings.</em></p>
-<h2 id='sellerconfirmshipped'>sellerConfirmShipped</h2>
+<h2 id='purchase-sellerconfirmshipped'>sellerConfirmShipped</h2>
 <blockquote>
 <p>To mark a purchase as shipped</p>
 </blockquote>
@@ -45,7 +45,7 @@
 <p>This method is <strong>called by the seller</strong> when the Purchase is in the <strong>&quot;shipping_pending&quot;</strong> stage.</p>
 
 <p>The Purchase will change to the <strong>&quot;buyer_pending&quot;</strong> stage. A 21 day timer will start for the buyer to mark the purchase as received. If the buyer does not market the purchase received in this time, it will automatically be marked received at the end of 21 days.</p>
-<h2 id='buyerconfirmreceipt'>buyerConfirmReceipt</h2>
+<h2 id='purchase-buyerconfirmreceipt'>buyerConfirmReceipt</h2>
 <blockquote>
 <p>To mark a purchase as received</p>
 </blockquote>
@@ -55,7 +55,7 @@
 <p>This method is <strong>called by the buyer</strong> when the Purchase is in the <strong>&quot;buyer_pending&quot;</strong> stage.</p>
 
 <p>The Purchase will change to the <strong>&quot;seller_pending&quot;</strong> stage.</p>
-<h2 id='sellergetpayout'>sellerGetPayout</h2>
+<h2 id='purchase-sellergetpayout'>sellerGetPayout</h2>
 <blockquote>
 <p>To mark a purchase as received</p>
 </blockquote>

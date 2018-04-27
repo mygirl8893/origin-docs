@@ -1,4 +1,4 @@
-<h1 id='authentication-amp-identity'>Authentication &amp; Identity</h1><h2 id='identity-with-erc-725'>Identity with ERC 725</h2>
+<h1 id='authentication-amp-identity'>Authentication &amp; Identity</h1><h2 id='authentication-amp-identity-identity-with-erc-725'>Identity with ERC 725</h2>
 <p>Users identities are tied to Ethereum addresses and your private keys are used as the sole method of authentication on the Origin platform.</p>
 
 <p>Users can always prove ownership of a wallet without sending funds, simply by signing a message using their private keys.</p>
