@@ -281,6 +281,9 @@
               </ul>
           </li>
           <li>
+            <a href="#local-development" class="toc-h1 toc-link" data-title="Local Development">Local Development</a>
+          </li>
+          <li>
             <a href="#authentication-amp-identity" class="toc-h1 toc-link" data-title="Authentication &amp; Identity">Authentication &amp; Identity</a>
               <ul class="toc-list-h2">
                   <li>
@@ -548,7 +551,45 @@ Always confirm that you are on Rinkeby testnet when testing your DApp. Any Eth o
 <span class="kr">const</span> <span class="nx">schema</span> <span class="o">=</span> <span class="s2">"for-sale"</span>
 <span class="kr">const</span> <span class="nx">transaction</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">listings</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">listingData</span><span class="p">,</span> <span class="nx">schema</span><span class="p">)</span>
 <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">contractService</span><span class="p">.</span><span class="nx">waitTransactionFinished</span><span class="p">(</span><span class="nx">transaction</span><span class="p">.</span><span class="nx">tx</span><span class="p">)</span>
-</code></pre><h1 id='authentication-amp-identity'>Authentication &amp; Identity</h1><h2 id='authentication-amp-identity-identity-with-erc-725'>Identity with ERC 725</h2>
+</code></pre><h1 id='local-development'>Local Development</h1>
+<p>Ready to get started developing Origin.js and the Demo DApp? You will need two terminal windows: one for origin.js and one for the DApp.</p>
+
+<p>Origin.js:</p>
+
+<pre style="margin-right: 50%; float:none; width: inherit; margin-bottom: 10px">
+    mkdir -p origin
+    cd origin
+    git clone https://github.com/OriginProtocol/origin-js.git
+    cd origin-js
+    git checkout develop
+    npm run install:dev
+    npm run start
+</pre>
+
+<p>And in another window, let&#39;s get the Demo DApp going:</p>
+
+<pre style="margin-right: 50%; float:none; width: inherit; margin-bottom: 10px">
+    cd .. (or /path/to/origin)
+    git clone https://github.com/OriginProtocol/demo-dapp.git
+    cd demo-dapp
+    git checkout develop
+    npm run install:dev
+    npm run start
+</pre>
+
+<p>Your local repos have been setup to use the develop branches, since that&#39;s where all our new work starts from. You have also linked the Demo DApp to use your local copy of the Origin.js library, so that your changes to Origin.js are reflected immediately.</p>
+
+<p>You will now need to have <a href="https://metamask.io/">MetaMask</a> installed in your browser and connect it to &quot;Localhost 8545&quot;. Then visit http://localhost:3000/ to see the DApp.</p>
+
+<p>If you make changes to the contract code, or want to reset the contracts back to their starting states, you will want to stop (<code>ctrl-c</code>) your Origin.js development server. Then start it back up again with <code>npm run start</code>. After doing this, you must clear MetaMask&#39;s caches (or you will be getting old and invalid data). To do this:</p>
+
+<ul>
+<li>Change the MetaMask network to any testnet</li>
+<li>Change back to &quot;Localhost 8545&quot;</li>
+<li>Go to MetaMask &quot;Custom RPC&quot; in the Network menu, and press &quot;Reset Account&quot;</li>
+<li>Reload http://localhost:3000/ in your browser</li>
+</ul>
+<h1 id='authentication-amp-identity'>Authentication &amp; Identity</h1><h2 id='authentication-amp-identity-identity-with-erc-725'>Identity with ERC 725</h2>
 <p>Users identities are tied to Ethereum addresses and your private keys are used as the sole method of authentication on the Origin platform.</p>
 
 <p>Users can always prove ownership of a wallet without sending funds, simply by signing a message using their private keys.</p>
