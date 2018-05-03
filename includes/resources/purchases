@@ -14,12 +14,12 @@
 <span class="kr">const</span> <span class="nx">purchase</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">purchases</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">purchaseAddress</span><span class="p">)</span>
 <span class="c1">// Returns </span>
 <span class="p">{</span>
-    <span class="nl">address</span><span class="p">:</span> <span class="s2">"0xefb3fd7f9260874d8afd7cb4b42183babea0ca1b"</span><span class="p">,</span>
-    <span class="nx">stage</span><span class="p">:</span> <span class="s2">"seller_pending"</span><span class="p">,</span>
-    <span class="nx">listingAddress</span><span class="p">:</span> <span class="s2">"0x05a52d9a9e9e91c6932ec2af7bf0c127660fa181"</span><span class="p">,</span>
-    <span class="nx">buyerAddress</span><span class="p">:</span> <span class="s2">"0x627306090abab3a6e1400e9345bc60c78a8bef57"</span><span class="p">,</span>
-    <span class="nx">created</span><span class="p">:</span> <span class="mi">1524492517</span><span class="p">,</span>
-    <span class="nx">buyerTimout</span><span class="p">:</span> <span class="mi">0</span>
+  <span class="nl">address</span><span class="p">:</span> <span class="s2">"0xefb3fd7f9260874d8afd7cb4b42183babea0ca1b"</span><span class="p">,</span>
+  <span class="nx">stage</span><span class="p">:</span> <span class="s2">"seller_pending"</span><span class="p">,</span>
+  <span class="nx">listingAddress</span><span class="p">:</span> <span class="s2">"0x05a52d9a9e9e91c6932ec2af7bf0c127660fa181"</span><span class="p">,</span>
+  <span class="nx">buyerAddress</span><span class="p">:</span> <span class="s2">"0x627306090abab3a6e1400e9345bc60c78a8bef57"</span><span class="p">,</span>
+  <span class="nx">created</span><span class="p">:</span> <span class="mi">1524492517</span><span class="p">,</span>
+  <span class="nx">buyerTimout</span><span class="p">:</span> <span class="mi">0</span>
 <span class="p">}</span>
 </code></pre>
 <p>This will return information about the purchase.</p>
@@ -27,7 +27,7 @@
 <blockquote>
 <p>To pay eth into a purchase</p>
 </blockquote>
-<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">transaction</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">purchases</span><span class="p">.</span><span class="nx">pay</span><span class="p">(</span><span class="nx">purchase_address</span><span class="p">,</span> <span class="nx">amountWei</span><span class="p">)</span>
+<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">transaction</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">purchases</span><span class="p">.</span><span class="nx">pay</span><span class="p">(</span><span class="nx">purchaseAddress</span><span class="p">,</span> <span class="nx">amountWei</span><span class="p">)</span>
 <span class="nx">await</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">isFinished</span><span class="p">()</span>
 </code></pre>
 <p>This method is <strong>called by the buyer</strong> when the Purchase is in the <strong>&quot;awaiting_payment&quot;</strong> stage.</p>
@@ -39,7 +39,7 @@
 <blockquote>
 <p>To mark a purchase as shipped</p>
 </blockquote>
-<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">transaction</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">purchases</span><span class="p">.</span><span class="nx">sellerConfirmShipped</span><span class="p">(</span><span class="nx">purchase_address</span><span class="p">)</span>
+<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">transaction</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">purchases</span><span class="p">.</span><span class="nx">sellerConfirmShipped</span><span class="p">(</span><span class="nx">purchaseAddress</span><span class="p">)</span>
 <span class="nx">await</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">isFinished</span><span class="p">()</span>
 </code></pre>
 <p>This method is <strong>called by the seller</strong> when the Purchase is in the <strong>&quot;shipping_pending&quot;</strong> stage.</p>
@@ -49,7 +49,7 @@
 <blockquote>
 <p>To mark a purchase as received</p>
 </blockquote>
-<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">transaction</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">purchases</span><span class="p">.</span><span class="nx">buyerConfirmReceipt</span><span class="p">(</span><span class="nx">purchase_address</span><span class="p">)</span>
+<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">transaction</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">purchases</span><span class="p">.</span><span class="nx">buyerConfirmReceipt</span><span class="p">(</span><span class="nx">purchaseAddress</span><span class="p">)</span>
 <span class="nx">await</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">isFinished</span><span class="p">()</span>
 </code></pre>
 <p>This method is <strong>called by the buyer</strong> when the Purchase is in the <strong>&quot;buyer_pending&quot;</strong> stage.</p>
@@ -59,7 +59,7 @@
 <blockquote>
 <p>To mark a purchase as received</p>
 </blockquote>
-<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">transaction</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">purchases</span><span class="p">.</span><span class="nx">sellerGetPayout</span><span class="p">(</span><span class="nx">purchase_address</span><span class="p">)</span>
+<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">transaction</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">purchases</span><span class="p">.</span><span class="nx">sellerGetPayout</span><span class="p">(</span><span class="nx">purchaseAddress</span><span class="p">)</span>
 <span class="nx">await</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">isFinished</span><span class="p">()</span>
 </code></pre>
 <p>This method is <strong>called by the seller</strong> when the Purchase is in the <strong>&quot;seller_pending&quot;</strong> stage.</p>
@@ -67,3 +67,61 @@
 <p>The seller will receive all eth value on the contract.</p>
 
 <p>The Purchase will change to the <strong>&quot;complete&quot;</strong> stage.</p>
+<h2 id='purchase-getlogs'>getLogs</h2>
+<blockquote>
+<p>To get the transaction logs for a purchase</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">purchaseAddress</span> <span class="o">=</span> <span class="s2">"0xab4c10f7c47e2c94f9ecbe1649c4d0ee53b8982a"</span>
+<span class="kr">const</span> <span class="nx">transaction</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">purchases</span><span class="p">.</span><span class="nx">getLogs</span><span class="p">(</span><span class="nx">purchaseAddress</span><span class="p">)</span>
+<span class="c1">// Returns</span>
+<span class="p">[</span>
+  <span class="p">{</span>
+    <span class="s2">"transactionHash"</span><span class="p">:</span> <span class="s2">"0xba1ec178d03935f6dc862a54d7e16070bf240a9890cdc79a0d14a3649b4adf19"</span><span class="p">,</span>
+    <span class="s2">"stage"</span><span class="p">:</span> <span class="s2">"awaiting_payment"</span><span class="p">,</span>
+    <span class="s2">"blockNumber"</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span>
+    <span class="s2">"blockHash"</span><span class="p">:</span> <span class="s2">"0x417bebc8d87e57940115a88a0b0d80d2a148ac0f556be661d83fdfa916898609"</span><span class="p">,</span>
+    <span class="s2">"event"</span><span class="p">:</span> <span class="s2">"PurchaseChange"</span><span class="p">,</span>
+    <span class="s2">"from"</span><span class="p">:</span> <span class="s2">"0x821aea9a577a9b44299b9c15c88cf3087f3b5544"</span><span class="p">,</span>
+    <span class="s2">"timestamp"</span><span class="p">:</span> <span class="mi">1525235927</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="s2">"transactionHash"</span><span class="p">:</span> <span class="s2">"0xba1ec178d03935f6dc862a54d7e16070bf240a9890cdc79a0d14a3649b4adf19"</span><span class="p">,</span>
+    <span class="s2">"stage"</span><span class="p">:</span> <span class="s2">"shipping_pending"</span><span class="p">,</span>
+    <span class="s2">"blockNumber"</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span>
+    <span class="s2">"blockHash"</span><span class="p">:</span> <span class="s2">"0x417bebc8d87e57940115a88a0b0d80d2a148ac0f556be661d83fdfa916898609"</span><span class="p">,</span>
+    <span class="s2">"event"</span><span class="p">:</span> <span class="s2">"PurchaseChange"</span><span class="p">,</span>
+    <span class="s2">"from"</span><span class="p">:</span> <span class="s2">"0x821aea9a577a9b44299b9c15c88cf3087f3b5544"</span><span class="p">,</span>
+    <span class="s2">"timestamp"</span><span class="p">:</span> <span class="mi">1525235927</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="s2">"transactionHash"</span><span class="p">:</span> <span class="s2">"0xe0ecb8c1d2cf7b5d44cb4a32e66b13d0532222e3201832c89f173247154d702c"</span><span class="p">,</span>
+    <span class="s2">"stage"</span><span class="p">:</span> <span class="s2">"buyer_pending"</span><span class="p">,</span>
+    <span class="s2">"blockNumber"</span><span class="p">:</span> <span class="mi">26</span><span class="p">,</span>
+    <span class="s2">"blockHash"</span><span class="p">:</span> <span class="s2">"0xf27b14413d1f8bae277c65c1b1d16a42382faf69612d9e7109869610d531314a"</span><span class="p">,</span>
+    <span class="s2">"event"</span><span class="p">:</span> <span class="s2">"PurchaseChange"</span><span class="p">,</span>
+    <span class="s2">"from"</span><span class="p">:</span> <span class="s2">"0x627306090abab3a6e1400e9345bc60c78a8bef57"</span><span class="p">,</span>
+    <span class="s2">"timestamp"</span><span class="p">:</span> <span class="mi">1525235927</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="s2">"transactionHash"</span><span class="p">:</span> <span class="s2">"0x1b6222075fc643a505cef8914f9f7c2f7d8d5a619c1d1e86d9711569881909e7"</span><span class="p">,</span>
+    <span class="s2">"stage"</span><span class="p">:</span> <span class="s2">"seller_pending"</span><span class="p">,</span>
+    <span class="s2">"blockNumber"</span><span class="p">:</span> <span class="mi">27</span><span class="p">,</span>
+    <span class="s2">"blockHash"</span><span class="p">:</span> <span class="s2">"0x337929056f657fb831bf621f53fe2999ecf598a1d0bf509e8c8104ae51fcaa70"</span><span class="p">,</span>
+    <span class="s2">"event"</span><span class="p">:</span> <span class="s2">"PurchaseChange"</span><span class="p">,</span>
+    <span class="s2">"from"</span><span class="p">:</span> <span class="s2">"0x821aea9a577a9b44299b9c15c88cf3087f3b5544"</span><span class="p">,</span>
+    <span class="s2">"timestamp"</span><span class="p">:</span> <span class="mi">1525235927</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="s2">"transactionHash"</span><span class="p">:</span> <span class="s2">"0xf53c6300b15ca1abd8b8bdfebee1f40ba870213a4d166368810fab1d3a0b8c9c"</span><span class="p">,</span>
+    <span class="s2">"stage"</span><span class="p">:</span> <span class="s2">"complete"</span><span class="p">,</span>
+    <span class="s2">"blockNumber"</span><span class="p">:</span> <span class="mi">28</span><span class="p">,</span>
+    <span class="s2">"blockHash"</span><span class="p">:</span> <span class="s2">"0x75ce342571398d38727c018ce6ab859d2c1863e7322ee540f9ddfe795189580b"</span><span class="p">,</span>
+    <span class="s2">"event"</span><span class="p">:</span> <span class="s2">"PurchaseChange"</span><span class="p">,</span>
+    <span class="s2">"from"</span><span class="p">:</span> <span class="s2">"0x627306090abab3a6e1400e9345bc60c78a8bef57"</span><span class="p">,</span>
+    <span class="s2">"timestamp"</span><span class="p">:</span> <span class="mi">1525235927</span>
+  <span class="p">}</span>
+<span class="p">]</span>
+</code></pre>
+<p>This method will return an array of log objects representing each blockchain transaction associated with the Purchase.</p>
+
+<p>Note that the <code>stage</code> value indicates the state of the contract <em>after</em> the transaction is recorded rather than indicating what action was taken to update the Purchase.</p>
