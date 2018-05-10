@@ -657,7 +657,7 @@ Make sure to safely store your private keys. We can't help if you lose them.
 <li>Twitter</li>
 </ul>
 
-<p>Currently, attestation is simply a public <em>confirmation</em> that something has been verified by Origin.
+<p>Currently, an attestation is simply a public <em>confirmation</em> that something has been verified by Origin.
 The information itself is not made public.</p>
 
 <p>For example, when a user adds an email attestation to their profile, all that anyone else will be able to see is that their email has been verified by Origin.
@@ -673,7 +673,7 @@ Once an attestation object has been created, it needs to be added to a user obje
   <span class="na">phone</span><span class="p">:</span> <span class="s2">"555-555-5555"</span>
 <span class="p">})</span>
 </code></pre>
-<p>This will send a text to the given phone number containing a verification code.</p>
+<p>This will send a text message to the given phone number containing a verification code.</p>
 <h2 id='attestation-phoneverify'>phoneVerify</h2>
 <blockquote>
 <p>To verify a ownership of a phone number</p>
@@ -723,23 +723,27 @@ Once an attestation object has been created, it needs to be added to a user obje
 <blockquote>
 <p>To get Facebook authentication url</p>
 </blockquote>
-<pre class="highlight javascript tab-javascript"><code><span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">attestations</span><span class="p">.</span><span class="nx">facebookAuthUrl</span><span class="p">({</span>
-  <span class="na">redirectUrl</span><span class="p">:</span> <span class="s2">"http://redirect.url"</span>
+<pre class="highlight javascript tab-javascript"><code><span class="kd">let</span> <span class="nx">url</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">attestations</span><span class="p">.</span><span class="nx">facebookAuthUrl</span><span class="p">()</span>
+
+<span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="s1">'width=650,height=500'</span><span class="p">)</span>
+<span class="kd">let</span> <span class="nx">code</span> <span class="o">=</span> <span class="nx">await</span> <span class="k">new</span> <span class="nx">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'message'</span><span class="p">,</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">String</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">data</span><span class="p">).</span><span class="nx">match</span><span class="p">(</span><span class="sr">/^origin-code:/</span><span class="p">))</span> <span class="p">{</span>
+      <span class="nx">resolve</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">':'</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="p">}</span>
+  <span class="p">},</span> <span class="kc">false</span><span class="p">)</span>
 <span class="p">})</span>
-<span class="c1">// Returns</span>
-<span class="s2">"http://foo.bar"</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'code'</span><span class="p">,</span> <span class="nx">code</span><span class="p">)</span> <span class="c1">// use this value in `facebookVerify`</span>
 </code></pre>
-<p>This will return a url which your dapp can redirect the user to.
+<p>This will return a url which your dapp should open in a popup window.
 The page will ask the user to grant permissions to the Origin app, which will be used to verify their Facebook identity.
-The user will be redirected to the specified <code>redirectUrl</code> after authentication. See the <a href="https://developers.facebook.com/docs/facebook-login/manually-build-a-login-flow">Facebook login documentation</a> for more details.</p>
+Once permissions have been granted, the popup window will <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage">post a message</a> back to the dapp. You should listen for this message, which will contain the <code>code</code> needed for the <code>facebookVerify</code> call.</p>
 <h2 id='attestation-facebookverify'>facebookVerify</h2>
 <blockquote>
 <p>To verify ownership of a Facebook account</p>
 </blockquote>
 <pre class="highlight javascript tab-javascript"><code><span class="kd">let</span> <span class="nx">facebookAttestation</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">attestations</span><span class="p">.</span><span class="nx">facebookVerify</span><span class="p">({</span>
-  <span class="na">wallet</span><span class="p">:</span> <span class="nx">myWalletAddress</span><span class="p">,</span>
-  <span class="na">redirectUrl</span><span class="p">:</span> <span class="s2">"http://redirect.url"</span>
-  <span class="na">code</span><span class="p">:</span> <span class="s2">"12345"</span>
+  <span class="na">code</span><span class="p">:</span> <span class="s2">"12345"</span> <span class="c1">// code obtained from `facebookAuthUrl`</span>
 <span class="p">})</span>
 <span class="c1">// Returns (attestation object)</span>
 <span class="p">{</span>
@@ -749,26 +753,34 @@ The user will be redirected to the specified <code>redirectUrl</code> after auth
   <span class="nx">service</span><span class="p">:</span> <span class="s2">"facebook"</span>
 <span class="p">}</span>
 </code></pre>
-<p>This will perform Facebook oauth verification on the specified <code>code</code> and <code>redirectUrl</code>. If it is valid, an attestation object will be returned.</p>
+<p>This will perform Facebook oauth verification on the specified <code>code</code>. If it is valid, an attestation object will be returned.</p>
 
-<p>Note that <code>code</code> is the oauth code generated in <code>facebookAuthUrl</code> (it will be added as a query param the url when the user is redirected - see the <a href="https://developers.facebook.com/docs/facebook-login/manually-build-a-login-flow">documentation</a> for details). <code>redirectUrl</code> <em>must</em> match the <code>redirectUrl</code> specified in the <code>facebookAuthUrl</code> call.</p>
+<p>Note that <code>code</code> is the oauth code generated in <code>facebookAuthUrl</code>.</p>
 <h2 id='attestation-twitterauthurl'>twitterAuthUrl</h2>
 <blockquote>
 <p>To get Twitter authentication url</p>
 </blockquote>
-<pre class="highlight javascript tab-javascript"><code><span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">attestations</span><span class="p">.</span><span class="nx">twitterAuthUrl</span><span class="p">()</span>
-<span class="c1">// Returns</span>
-<span class="s2">"http://foo.bar"</span>
+<pre class="highlight javascript tab-javascript"><code><span class="kd">let</span> <span class="nx">url</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">attestations</span><span class="p">.</span><span class="nx">twitterAuthUrl</span><span class="p">()</span>
+
+<span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="s1">'width=650,height=500'</span><span class="p">)</span>
+<span class="kd">let</span> <span class="nx">code</span> <span class="o">=</span> <span class="nx">await</span> <span class="k">new</span> <span class="nx">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'message'</span><span class="p">,</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">String</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">data</span><span class="p">).</span><span class="nx">match</span><span class="p">(</span><span class="sr">/^origin-code:/</span><span class="p">))</span> <span class="p">{</span>
+      <span class="nx">resolve</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">':'</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="p">}</span>
+  <span class="p">},</span> <span class="kc">false</span><span class="p">)</span>
+<span class="p">})</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'code'</span><span class="p">,</span> <span class="nx">code</span><span class="p">)</span> <span class="c1">// use this value in `twitterVerify`</span>
 </code></pre>
-<p>This will return a url which your dapp can redirect the user to.
-The page will ask the user to grant permissions to the Origin app, which will be used to verify their Twitter identity. See the <a href="https://developer.twitter.com/en/docs/basics/authentication/guides/access-tokens">Twitter authentication documentation</a> for more details.</p>
+<p>This will return a url which your dapp should open in a popup window.
+The page will ask the user to grant permissions to the Origin app, which will be used to verify their Twitter identity.
+Once permissions have been granted, the popup window will <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/postMessage">post a message</a> back to the dapp. You should listen for this message, which will contain the <code>code</code> needed for the <code>twitterVerify</code> call.</p>
 <h2 id='attestation-twitterverify'>twitterVerify</h2>
 <blockquote>
 <p>To verify ownership of a Twitter account</p>
 </blockquote>
 <pre class="highlight javascript tab-javascript"><code><span class="kd">let</span> <span class="nx">twitterAttestation</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">attestations</span><span class="p">.</span><span class="nx">twitterVerify</span><span class="p">({</span>
-  <span class="na">wallet</span><span class="p">:</span> <span class="nx">myWalletAddress</span><span class="p">,</span>
-  <span class="na">oauthVerifier</span><span class="p">:</span> <span class="s2">"12345"</span>
+  <span class="na">code</span><span class="p">:</span> <span class="s2">"12345"</span> <span class="c1">// code obtained from `twitterAuthUrl`</span>
 <span class="p">})</span>
 <span class="c1">// Returns (attestation object)</span>
 <span class="p">{</span>
@@ -778,9 +790,9 @@ The page will ask the user to grant permissions to the Origin app, which will be
   <span class="nx">service</span><span class="p">:</span> <span class="s2">"twitter"</span>
 <span class="p">}</span>
 </code></pre>
-<p>This will perform Twitter oauth verification on the specified <code>oauthVerifier</code>. If it is valid, an attestation object will be returned.</p>
+<p>This will perform Twitter oauth verification on the specified <code>code</code>. If it is valid, an attestation object will be returned.</p>
 
-<p>Note that <code>oauthVerifier</code> is the oauth verifier code generated in <code>twitterAuthUrl</code> (it will be added as a query param the url when the user is redirected - see the <a href="https://developer.twitter.com/en/docs/basics/authentication/guides/access-tokens">documentation</a> for details).</p>
+<p>Note that <code>code</code> is the code generated in <code>twitterAuthUrl</code></p>
 <h1 id='listing'>Listing</h1>
 <p>A listing is an offer from a seller to sell something.</p>
 
@@ -1059,20 +1071,26 @@ Users are implemented as <a href="https://medium.com/originprotocol/managing-ide
   <span class="na">phone</span><span class="p">:</span> <span class="s2">"555-555-5555"</span>
 <span class="p">})</span>
 <span class="kd">let</span> <span class="nx">phoneAttestation</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">attestations</span><span class="p">.</span><span class="nx">phoneVerify</span><span class="p">({</span>
-  <span class="na">wallet</span><span class="p">:</span> <span class="nx">myWalletAddress</span><span class="p">,</span>
   <span class="na">phone</span><span class="p">:</span> <span class="s2">"555-555-5555"</span><span class="p">,</span>
   <span class="na">code</span><span class="p">:</span> <span class="s2">"123456"</span>
 <span class="p">})</span>
 
 <span class="c1">// Get a Facebook attestation object</span>
-<span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">attestations</span><span class="p">.</span><span class="nx">facebookAuthUrl</span><span class="p">({</span>
-  <span class="na">redirectUrl</span><span class="p">:</span> <span class="s2">"http://redirect.url"</span>
+<span class="kd">let</span> <span class="nx">url</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">attestations</span><span class="p">.</span><span class="nx">facebookAuthUrl</span><span class="p">()</span>
+
+<span class="c1">// Open facebook authentication popup and retrieve authentication code</span>
+<span class="nb">window</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="s1">''</span><span class="p">,</span> <span class="s1">'width=650,height=500'</span><span class="p">)</span>
+<span class="kd">let</span> <span class="nx">code</span> <span class="o">=</span> <span class="nx">await</span> <span class="k">new</span> <span class="nx">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">,</span> <span class="nx">reject</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'message'</span><span class="p">,</span> <span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">String</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">data</span><span class="p">).</span><span class="nx">match</span><span class="p">(</span><span class="sr">/^origin-code:/</span><span class="p">))</span> <span class="p">{</span>
+      <span class="nx">resolve</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">split</span><span class="p">(</span><span class="s1">':'</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="p">}</span>
+  <span class="p">},</span> <span class="kc">false</span><span class="p">)</span>
 <span class="p">})</span>
-<span class="c1">// (do some stuff to guide user through Facebook auth flow here)</span>
+
+<span class="c1">// Send code to obtain attestation</span>
 <span class="kd">let</span> <span class="nx">facebookAttestation</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">attestations</span><span class="p">.</span><span class="nx">facebookVerify</span><span class="p">({</span>
-  <span class="na">wallet</span><span class="p">:</span> <span class="nx">myWalletAddress</span><span class="p">,</span>
-  <span class="na">redirectUrl</span><span class="p">:</span> <span class="s2">"http://redirect.url"</span>
-  <span class="na">code</span><span class="p">:</span> <span class="s2">"12345"</span>
+  <span class="na">code</span><span class="p">:</span> <span class="nx">code</span>
 <span class="p">})</span>
 
 <span class="kd">let</span> <span class="nx">myNewUser</span> <span class="o">=</span> <span class="p">{</span>
@@ -1088,7 +1106,6 @@ Users are implemented as <a href="https://medium.com/originprotocol/managing-ide
   <span class="na">email</span><span class="p">:</span> <span class="s2">"me@my.domain"</span>
 <span class="p">})</span>
 <span class="kd">let</span> <span class="nx">emailAttestation</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">attestations</span><span class="p">.</span><span class="nx">emailVerify</span><span class="p">({</span>
-  <span class="na">wallet</span><span class="p">:</span> <span class="nx">myWalletAddress</span><span class="p">,</span>
   <span class="na">email</span><span class="p">:</span> <span class="s2">"me@my.domain"</span><span class="p">,</span>
   <span class="na">code</span><span class="p">:</span> <span class="s2">"123456"</span>
 <span class="p">})</span>
