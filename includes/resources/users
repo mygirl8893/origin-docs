@@ -40,10 +40,11 @@ Users are implemented as <a href="https://medium.com/originprotocol/managing-ide
 <span class="p">})</span>
 
 <span class="kd">let</span> <span class="nx">myNewUser</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="na">profile</span><span class="p">:</span> <span class="p">{</span> <span class="na">claims</span><span class="p">:</span> <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="s2">"Wonder Woman"</span> <span class="p">}</span> <span class="p">},</span>
+  <span class="na">profile</span><span class="p">:</span> <span class="p">{</span> <span class="na">firstName</span><span class="p">:</span> <span class="s2">"Wonder"</span><span class="p">,</span> <span class="na">lastName</span><span class="p">:</span> <span class="s2">"Woman"</span> <span class="p">},</span>
   <span class="na">attestations</span><span class="p">:</span> <span class="p">[</span> <span class="nx">phoneAttestation</span><span class="p">,</span> <span class="nx">facebookAttestation</span> <span class="p">]</span>
 <span class="p">}</span>
-<span class="kd">let</span> <span class="nx">createdUser</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">myNewUser</span><span class="p">)</span>
+<span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">myNewUser</span><span class="p">)</span>
+<span class="kd">let</span> <span class="nx">createdUser</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">users</span><span class="p">.</span><span class="nx">get</span><span class="p">()</span>
 
 <span class="c1">// User has been created!</span>
 
@@ -57,13 +58,14 @@ Users are implemented as <a href="https://medium.com/originprotocol/managing-ide
 <span class="p">})</span>
 
 <span class="nx">createdUser</span><span class="p">.</span><span class="nx">attestations</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">emailAttestation</span><span class="p">)</span>
-<span class="kd">let</span> <span class="nx">updatedUser</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">createdUser</span><span class="p">)</span>
+<span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">users</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">createdUser</span><span class="p">)</span>
+<span class="kd">let</span> <span class="nx">updatedUser</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">users</span><span class="p">.</span><span class="nx">get</span><span class="p">()</span>
 
 <span class="c1">// User has been updated!</span>
 <span class="c1">// final `updatedUser`:</span>
 <span class="p">{</span>
   <span class="p">{</span>
-    <span class="na">profile</span><span class="p">:</span> <span class="p">{</span> <span class="na">claims</span><span class="p">:</span> <span class="p">{</span> <span class="na">name</span><span class="p">:</span> <span class="s2">"Wonder Woman"</span> <span class="p">}</span> <span class="p">},</span>
+    <span class="na">profile</span><span class="p">:</span> <span class="p">{</span> <span class="na">firstName</span><span class="p">:</span> <span class="s2">"Wonder"</span><span class="p">,</span> <span class="na">lastName</span><span class="p">:</span> <span class="s2">"Woman"</span> <span class="p">},</span>
     <span class="na">attestations</span><span class="p">:</span> <span class="p">[</span>
       <span class="p">{</span>
         <span class="na">signature</span><span class="p">:</span> <span class="s2">"0xeb6123e537e17e2c67b67bbc0b93e6b25ea9eae276c4c2ab353bd7e853ebad2446cc7e91327f3737559d7a9a90fc88529a6b72b770a612f808ab0ba57a46866e1c"</span><span class="p">,</span>
