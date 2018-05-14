@@ -292,6 +292,14 @@
               </ul>
           </li>
           <li>
+            <a href="#origin-object" class="toc-h1 toc-link" data-title="Origin Object">Origin Object</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#origin-object-configuration" class="toc-h2 toc-link" data-title="Configuration">Configuration</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#attestation" class="toc-h1 toc-link" data-title="Attestation">Attestation</a>
               <ul class="toc-list-h2">
                   <li>
@@ -643,7 +651,36 @@ Always confirm that you are on Rinkeby testnet when testing your DApp. Any Eth o
 <aside class="notice">
 Make sure to safely store your private keys. We can't help if you lose them.
 </aside>
-<h1 id='attestation'>Attestation</h1>
+<h1 id='origin-object'>Origin Object</h1>
+<p>The Origin object is the base of interaction with origin.js. Other resources are members of this object. For example, <code>origin.listings</code>, <code>origin.purchases</code>, <code>origin.attestations</code>, etc.</p>
+<h2 id='origin-object-configuration'>Configuration</h2>
+<p>Configuration options are passed into the Origin constructor at instantiation.</p>
+<pre class="highlight javascript tab-javascript"><code><span class="kd">let</span> <span class="nx">configOptions</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">option</span><span class="p">:</span> <span class="s1">'value'</span>
+<span class="p">}</span>
+<span class="kd">let</span> <span class="nx">origin</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Origin</span><span class="p">(</span><span class="nx">configOptions</span><span class="p">)</span>
+</code></pre>
+<p>Valid options:</p>
+
+<ul>
+<li><code>ipfsDomain</code></li>
+<li><code>ipfsApiPort</code></li>
+<li><code>ipfsGatewayPort</code></li>
+<li><code>ipfsGatewayProtocol</code></li>
+<li><code>attestationServerUrl</code></li>
+</ul>
+
+<p>For example, if you are running a local IPFS daemon then you could set following config options:</p>
+<pre class="highlight javascript tab-javascript"><code><span class="kd">let</span> <span class="nx">origin</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Origin</span><span class="p">(</span><span class="nx">configOptions</span><span class="p">)</span>
+
+<span class="p">{</span>
+  <span class="nl">ipfsDomain</span><span class="p">:</span> <span class="s1">'127.0.0.1'</span><span class="p">,</span>
+  <span class="nx">ipfsApiPort</span><span class="p">:</span> <span class="s1">'5001'</span><span class="p">,</span>
+  <span class="nx">ipfsGatewayPort</span><span class="p">:</span> <span class="s1">'8080'</span><span class="p">,</span>
+  <span class="nx">ipfsGatewayProtocol</span><span class="p">:</span> <span class="s1">'http'</span>
+<span class="p">}</span>
+<span class="kd">let</span> <span class="nx">origin</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Origin</span><span class="p">(</span><span class="nx">configOptions</span><span class="p">)</span>
+</code></pre><h1 id='attestation'>Attestation</h1>
 <p>An <strong>Attestation</strong> is a confirmation that some piece of identity information has been verified by a trusted 3rd party.</p>
 
 <p>Origin provides an attestation service that users can optionally use to add attestations to their profile.</p>
