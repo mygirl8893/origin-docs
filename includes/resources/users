@@ -7,6 +7,7 @@ Users are implemented as <a href="https://medium.com/originprotocol/managing-ide
 <ul>
 <li><code>profile</code>: Profile information a user chooses to reveal publicly</li>
 <li><code>attestations</code>: A list of 3rd party attestations that the user has added to their identity (see <a href="#attestation">Attestation documentation</a> for details)</li>
+<li><code>identityAddress</code>: Ethereum address for the identity contract</li>
 </ul>
 <h2 id='user-set'>set</h2>
 <blockquote>
@@ -85,7 +86,8 @@ Users are implemented as <a href="https://medium.com/originprotocol/managing-ide
         <span class="na">claimType</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
         <span class="na">service</span><span class="p">:</span> <span class="s2">"twitter"</span>
       <span class="p">}</span>
-    <span class="p">]</span>
+    <span class="p">],</span>
+    <span class="na">identityAddress</span><span class="p">:</span> <span class="s2">"0x4E72770760c011647D4873f60A3CF6cDeA896CD8"</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
@@ -102,7 +104,8 @@ Updates should be made by taking the existing user object, making modifications 
 <span class="c1">// Returns (user object)</span>
 <span class="p">{</span>
   <span class="nl">profile</span><span class="p">:</span> <span class="p">{}</span>
-  <span class="nl">attestations</span><span class="p">:</span> <span class="p">[]</span>
+  <span class="nl">attestations</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="nx">identityAddress</span><span class="p">:</span> <span class="s1">''</span>
 <span class="p">}</span>
 </code></pre>
 <p>With no parameters passed in, this will return the current user.
