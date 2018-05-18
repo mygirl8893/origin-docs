@@ -49,17 +49,21 @@
 <blockquote>
 <p>To mark a purchase as received</p>
 </blockquote>
-<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">transaction</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">purchases</span><span class="p">.</span><span class="nx">buyerConfirmReceipt</span><span class="p">(</span><span class="nx">purchaseAddress</span><span class="p">)</span>
+<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">review</span> <span class="o">=</span> <span class="p">{</span><span class="na">rating</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="na">reviewText</span><span class="p">:</span> <span class="s2">"Prompt shipping!"</span> <span class="p">}</span>
+<span class="kr">const</span> <span class="nx">transaction</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">purchases</span><span class="p">.</span><span class="nx">buyerConfirmReceipt</span><span class="p">(</span><span class="nx">purchaseAddress</span><span class="p">,</span> <span class="nx">review</span><span class="p">)</span>
 <span class="nx">await</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">isFinished</span><span class="p">()</span>
 </code></pre>
 <p>This method is <strong>called by the buyer</strong> when the Purchase is in the <strong>&quot;buyer_pending&quot;</strong> stage.</p>
 
 <p>The Purchase will change to the <strong>&quot;seller_pending&quot;</strong> stage.</p>
+
+<p>A rating from 1 to 5 is required as a part of a review. Review text is optional.</p>
 <h2 id='purchase-sellergetpayout'>sellerGetPayout</h2>
 <blockquote>
 <p>To mark a purchase as received</p>
 </blockquote>
-<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">transaction</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">purchases</span><span class="p">.</span><span class="nx">sellerGetPayout</span><span class="p">(</span><span class="nx">purchaseAddress</span><span class="p">)</span>
+<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">review</span> <span class="o">=</span> <span class="p">{</span><span class="na">rating</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="na">reviewText</span><span class="p">:</span> <span class="s2">"Good buyer!"</span> <span class="p">}</span>
+<span class="kr">const</span> <span class="nx">transaction</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">purchases</span><span class="p">.</span><span class="nx">sellerGetPayout</span><span class="p">(</span><span class="nx">purchaseAddress</span><span class="p">,</span> <span class="nx">review</span><span class="p">)</span>
 <span class="nx">await</span> <span class="nx">transaction</span><span class="p">.</span><span class="nx">isFinished</span><span class="p">()</span>
 </code></pre>
 <p>This method is <strong>called by the seller</strong> when the Purchase is in the <strong>&quot;seller_pending&quot;</strong> stage.</p>
@@ -67,6 +71,8 @@
 <p>The seller will receive all eth value on the contract.</p>
 
 <p>The Purchase will change to the <strong>&quot;complete&quot;</strong> stage.</p>
+
+<p>A rating from 1 to 5 is required as a part of a review. Review text is optional.</p>
 <h2 id='purchase-getlogs'>getLogs</h2>
 <blockquote>
 <p>To get the transaction logs for a purchase</p>
