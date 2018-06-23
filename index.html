@@ -1387,7 +1387,8 @@ use-cases.</p>
 <p>For Solidity, we use two space indents.</p>
 <h3 id='contributing-email-troubleshooting-a-development-environment'>Troubleshooting a Development Environment</h3>
 <ul>
-<li>If you encounter errors while executing <code>npm install</code> for any of the Origin repositories, try running a recent LTS version of Node.js. <a href="https://github.com/creationix/nvm">nvm</a> is a tool that can install specific versions of Node.js. After installing <code>nvm</code>, run <code>nvm install --lts</code>, remove your <code>node_modules</code> directory, and run <code>npm install</code> again.</li>
+<li><p>If you encounter errors while executing <code>npm install</code> for any of the Origin repositories, try running a recent LTS version of Node.js. <a href="https://github.com/creationix/nvm">nvm</a> is a tool that can install specific versions of Node.js. After installing <code>nvm</code>, run <code>nvm install --lts</code>, remove your <code>node_modules</code> directory, and run <code>npm install</code> again.</p></li>
+<li><p>If you are using <code>origin-box</code> Docker setup and are running OSX Sierra below 10.13.4 Docker volumes might randomly stop syncing. This results in problems where host machine source code updates do not get propagated to file system inside Docker. To resolve this issue update OSX Sierra to 10.13.4 or above. See <a href="https://github.com/EugenMayer/docker-sync/issues/517">this thread</a> for more details. </p></li>
 </ul>
 <h3 id='contributing-email-protocol-design'>Protocol Design</h3>
 <p>When considering protocol or implementation design proposals, we are looking for:</p>
