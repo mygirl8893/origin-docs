@@ -8,7 +8,7 @@
 </blockquote>
 <pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">listingAddress</span> <span class="o">=</span> <span class="s2">"0x061b8d5f9e432e6b23d79fac02e5792eb8746ce5"</span>
 <span class="kr">const</span> <span class="nx">listing</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">listings</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="nx">listingAddress</span><span class="p">)</span>
-<span class="c1">// Returns </span>
+<span class="c1">// Returns</span>
 <span class="p">{</span>
   <span class="nl">name</span><span class="p">:</span> <span class="s2">"Kettlebell For Sale"</span><span class="p">,</span>
   <span class="nx">category</span><span class="p">:</span> <span class="s2">"Health and Beauty"</span><span class="p">,</span>
@@ -28,13 +28,13 @@
 </code></pre>
 <p>This will return information about the listing, combining information from IPFS and the blockchain. In the future, fields returned may differ based on the listing&#39;s schema.</p>
 
-<p data-height="440" data-theme-id="dark" data-slug-hash="vrzqYo" data-default-tab="js,result" data-user="originprotocol" data-embed-version="2" data-pen-title="Origin.js: Get Listing" class="codepen">See the Pen <a href="https://codepen.io/originprotocol/pen/vrzqYo/">Origin.js: Get Listing</a> by Origin Protocol (<a href="https://codepen.io/originprotocol">@originprotocol</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<p data-height="440" data-theme-id="33880" data-slug-hash="vrzqYo" data-default-tab="js,result" data-user="originprotocol" data-embed-version="2" data-pen-title="Origin.js: Get Listing" class="codepen">See the Pen <a href="https://codepen.io/originprotocol/pen/vrzqYo/">Origin.js: Get Listing</a> by Origin Protocol (<a href="https://codepen.io/originprotocol">@originprotocol</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <h2 id='listing-getbyindex'>getByIndex</h2>
 <blockquote>
 <p>To get a listing by index position</p>
 </blockquote>
 <pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">listing</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">listings</span><span class="p">.</span><span class="nx">getByIndex</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="c1">// Returns </span>
+<span class="c1">// Returns</span>
 <span class="p">{</span>
   <span class="nl">name</span><span class="p">:</span> <span class="s2">"Kettlebell For Sale"</span><span class="p">,</span>
   <span class="nx">category</span><span class="p">:</span> <span class="s2">"Health and Beauty"</span><span class="p">,</span>
@@ -54,7 +54,7 @@
 
 <p>This will return information about the listing, combining information from IPFS and the blockchain. In the future, fields returned may differ based on the listing&#39;s schema.</p>
 
-<p data-height="420" data-theme-id="dark" data-slug-hash="VdGJwO" data-default-tab="js,result" data-user="originprotocol" data-embed-version="2" data-pen-title="Origin.js: Get Listing By Index" class="codepen">See the Pen <a href="https://codepen.io/originprotocol/pen/VdGJwO/">Origin.js: Get Listing By Index</a> by Origin Protocol (<a href="https://codepen.io/originprotocol">@originprotocol</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<p data-height="420" data-theme-id="33880" data-slug-hash="VdGJwO" data-default-tab="js,result" data-user="originprotocol" data-embed-version="2" data-pen-title="Origin.js: Get Listing By Index" class="codepen">See the Pen <a href="https://codepen.io/originprotocol/pen/VdGJwO/">Origin.js: Get Listing By Index</a> by Origin Protocol (<a href="https://codepen.io/originprotocol">@originprotocol</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <h2 id='listing-create'>create</h2>
 <blockquote>
 <p>To create a listing</p>
@@ -80,7 +80,7 @@
 
 <p>A listing will expire 60 days after its expiration date.</p>
 
-<p data-height="780" data-theme-id="dark" data-slug-hash="oyPrNV" data-default-tab="js,result" data-user="originprotocol" data-embed-version="2" data-pen-title="Origin.js: Create Listing" class="codepen">See the Pen <a href="https://codepen.io/originprotocol/pen/oyPrNV/">Origin.js: Create Listing</a> by Origin Protocol (<a href="https://codepen.io/originprotocol">@originprotocol</a>) on <a href="https://codepen.io">CodePen</a>.</p>
+<p data-height="780" data-theme-id="33880" data-slug-hash="oyPrNV" data-default-tab="js,result" data-user="originprotocol" data-embed-version="2" data-pen-title="Origin.js: Create Listing" class="codepen">See the Pen <a href="https://codepen.io/originprotocol/pen/oyPrNV/">Origin.js: Create Listing</a> by Origin Protocol (<a href="https://codepen.io/originprotocol">@originprotocol</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <h2 id='listing-buy'>buy</h2>
 <blockquote>
 <p>To buy a listing</p>
@@ -112,7 +112,7 @@
 <p>To find all listing indexes</p>
 </blockquote>
 <pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">indexes</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">listings</span><span class="p">.</span><span class="nx">allIds</span><span class="p">()</span>
-<span class="c1">// Returns </span>
+<span class="c1">// Returns</span>
 <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,...]</span>
 </code></pre>
 <p>You can get a simple list of all listing indexes in the registry, which will allow you to loop through fetch information about each Listing.</p>
@@ -122,7 +122,7 @@
 </blockquote>
 <pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">listingAddress</span> <span class="o">=</span> <span class="s2">"0xbe3a878bfc1e1527858756c062fbfe0db069c459"</span>
 <span class="kr">const</span> <span class="nx">length</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">listings</span><span class="p">.</span><span class="nx">purchasesLength</span><span class="p">(</span><span class="nx">listingAddress</span><span class="p">)</span>
-<span class="c1">// Returns </span>
+<span class="c1">// Returns</span>
 <span class="mi">4</span>
 </code></pre>
 <p>This will return the number of purchases that have occurred for a given listing address.</p>
@@ -132,7 +132,7 @@
 </blockquote>
 <pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">listingAddress</span> <span class="o">=</span> <span class="s2">"0xbe3a878bfc1e1527858756c062fbfe0db069c459"</span>
 <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">listings</span><span class="p">.</span><span class="nx">purchaseAddressByIndex</span><span class="p">(</span><span class="nx">listingAddress</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="c1">// Returns </span>
+<span class="c1">// Returns</span>
 <span class="s2">"0x9deee0195f88caf7dee2fa8a6777f8236d847ef8"</span>
 </code></pre>
 <p>For listings that have one or more purchases, you can get the purchase address at a given index position.</p>
