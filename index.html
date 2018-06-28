@@ -337,6 +337,12 @@
                   <li>
                     <a href="#attestation-twitterverify" class="toc-h2 toc-link" data-title="twitterVerify">twitterVerify</a>
                   </li>
+                  <li>
+                    <a href="#attestation-airbnbgeneratecode" class="toc-h2 toc-link" data-title="airbnbGenerateCode">airbnbGenerateCode</a>
+                  </li>
+                  <li>
+                    <a href="#attestation-airbnbverify" class="toc-h2 toc-link" data-title="airbnbVerify">airbnbVerify</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -717,6 +723,7 @@ Make sure to safely store your private keys. We can't help if you lose them.
 <li>Phone</li>
 <li>Facebook</li>
 <li>Twitter</li>
+<li>Airbnb</li>
 </ul>
 
 <p>Currently, an attestation is simply a public <em>confirmation</em> that something has been verified by Origin.
@@ -855,6 +862,37 @@ Once permissions have been granted, the popup window will <a href="https://devel
 <p>This will perform Twitter oauth verification on the specified <code>code</code>. If it is valid, an attestation object will be returned.</p>
 
 <p>Note that <code>code</code> is the code generated in <code>twitterAuthUrl</code></p>
+<h2 id='attestation-airbnbgeneratecode'>airbnbGenerateCode</h2>
+<blockquote>
+<p>To generate verification code</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">attestations</span><span class="p">.</span><span class="nx">airbnbGenerateCode</span><span class="p">({</span>
+  <span class="na">wallet</span><span class="p">:</span> <span class="nx">myWalletAddress</span><span class="p">,</span>
+  <span class="na">airbnbUserId</span><span class="p">:</span> <span class="c1">// user's id on Airbnb website</span>
+<span class="p">})</span>
+<span class="c1">// Returns (object)</span>
+<span class="p">{</span>
+  <span class="nl">code</span><span class="p">:</span> <span class="s2">"0x0deef6ef"</span>
+<span class="p">}</span>
+</code></pre>
+<p>This will generate a unique code that should be inserted into user&#39;s Airbnb profile description.</p>
+<h2 id='attestation-airbnbverify'>airbnbVerify</h2>
+<blockquote>
+<p>To verify ownership of Airbnb profile</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="kd">let</span> <span class="nx">emailAttestation</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">attestations</span><span class="p">.</span><span class="nx">airbnbVerify</span><span class="p">({</span>
+  <span class="na">wallet</span><span class="p">:</span> <span class="nx">myWalletAddress</span><span class="p">,</span>
+  <span class="na">airbnbUserId</span><span class="p">:</span> <span class="c1">// user's id on Airbnb website</span>
+<span class="p">})</span>
+<span class="c1">// Returns (attestation object)</span>
+<span class="p">{</span>
+  <span class="nl">signature</span><span class="p">:</span> <span class="s2">"0xeb6123e537e17e2c67b67bbc0b93e6b25ea9eae276c4c2ab353bd7e853ebad2446cc7e91327f3737559d7a9a90fc88529a6b72b770a612f808ab0ba57a46866e1c"</span><span class="p">,</span>
+  <span class="nx">data</span><span class="p">:</span> <span class="s2">"0x7f5e752d19fee44e13bb0cc820255017c35584caddc055641d6ccadfa3afca01"</span><span class="p">,</span>
+  <span class="nx">claimType</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+  <span class="nx">service</span><span class="p">:</span> <span class="s2">"airbnb"</span>
+<span class="p">}</span>
+</code></pre>
+<p>If user has inserted the correct <code>code</code> in his Airbnb profile, an attestation object will be returned.</p>
 <h1 id='listing'>Listing</h1>
 <p>A listing is an offer from a seller to sell something.</p>
 
@@ -870,7 +908,7 @@ Once permissions have been granted, the popup window will <a href="https://devel
   <span class="nl">name</span><span class="p">:</span> <span class="s2">"Kettlebell For Sale"</span><span class="p">,</span>
   <span class="nx">category</span><span class="p">:</span> <span class="s2">"Health and Beauty"</span><span class="p">,</span>
   <span class="nx">description</span><span class="p">:</span> <span class="s2">"32kg gorilla kettlebell"</span><span class="p">,</span>
-  <span class="nx">location</span><span class="p">:</span> <span class="s2">"San Fransisco, CA"</span><span class="p">,</span>
+  <span class="nx">location</span><span class="p">:</span> <span class="s2">"San Francisco, CA"</span><span class="p">,</span>
   <span class="nx">pictures</span><span class="p">:</span> <span class="p">[],</span>
 
   <span class="nx">address</span><span class="p">:</span> <span class="s2">"0x061b8d5f9e432e6b23d79fac02e5792eb8746ce5"</span><span class="p">,</span>
@@ -884,6 +922,8 @@ Once permissions have been granted, the popup window will <a href="https://devel
 <span class="p">}</span>
 </code></pre>
 <p>This will return information about the listing, combining information from IPFS and the blockchain. In the future, fields returned may differ based on the listing&#39;s schema.</p>
+
+<p data-height="440" data-theme-id="dark" data-slug-hash="vrzqYo" data-default-tab="js,result" data-user="originprotocol" data-embed-version="2" data-pen-title="Origin.js: Get Listing" class="codepen">See the Pen <a href="https://codepen.io/originprotocol/pen/vrzqYo/">Origin.js: Get Listing</a> by Origin Protocol (<a href="https://codepen.io/originprotocol">@originprotocol</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <h2 id='listing-getbyindex'>getByIndex</h2>
 <blockquote>
 <p>To get a listing by index position</p>
@@ -894,7 +934,7 @@ Once permissions have been granted, the popup window will <a href="https://devel
   <span class="nl">name</span><span class="p">:</span> <span class="s2">"Kettlebell For Sale"</span><span class="p">,</span>
   <span class="nx">category</span><span class="p">:</span> <span class="s2">"Health and Beauty"</span><span class="p">,</span>
   <span class="nx">description</span><span class="p">:</span> <span class="s2">"32kg gorilla kettlebell"</span><span class="p">,</span>
-  <span class="nx">location</span><span class="p">:</span> <span class="s2">"San Fransisco, CA"</span><span class="p">,</span>
+  <span class="nx">location</span><span class="p">:</span> <span class="s2">"San Francisco, CA"</span><span class="p">,</span>
   <span class="nx">pictures</span><span class="p">:</span> <span class="p">[],</span>
 
   <span class="nx">address</span><span class="p">:</span> <span class="s2">"659cbb0e2411a44db63778987b1e22153c086a95eb6b18bdf89de078917abc63"</span><span class="p">,</span>
@@ -908,6 +948,8 @@ Once permissions have been granted, the popup window will <a href="https://devel
 <p><strong>This method is deprecated</strong>, and will be removed soon.  Use <code>get</code> instead.</p>
 
 <p>This will return information about the listing, combining information from IPFS and the blockchain. In the future, fields returned may differ based on the listing&#39;s schema.</p>
+
+<p data-height="420" data-theme-id="dark" data-slug-hash="VdGJwO" data-default-tab="js,result" data-user="originprotocol" data-embed-version="2" data-pen-title="Origin.js: Get Listing By Index" class="codepen">See the Pen <a href="https://codepen.io/originprotocol/pen/VdGJwO/">Origin.js: Get Listing By Index</a> by Origin Protocol (<a href="https://codepen.io/originprotocol">@originprotocol</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <h2 id='listing-create'>create</h2>
 <blockquote>
 <p>To create a listing</p>
@@ -915,7 +957,7 @@ Once permissions have been granted, the popup window will <a href="https://devel
 <pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">listingData</span> <span class="o">=</span> <span class="p">{</span>
   <span class="na">name</span><span class="p">:</span> <span class="s2">"Kettlebell For Sale"</span><span class="p">,</span>
   <span class="na">category</span><span class="p">:</span> <span class="s2">"Health and Beauty"</span><span class="p">,</span>
-  <span class="na">location</span><span class="p">:</span> <span class="s2">"San Fransisco, CA"</span><span class="p">,</span>
+  <span class="na">location</span><span class="p">:</span> <span class="s2">"San Francisco, CA"</span><span class="p">,</span>
   <span class="na">description</span><span class="p">:</span>
     <span class="s2">"32kg gorilla kettlebell"</span><span class="p">,</span>
   <span class="na">pictures</span><span class="p">:</span> <span class="p">[],</span>
@@ -932,6 +974,8 @@ Once permissions have been granted, the popup window will <a href="https://devel
 <p>The wallet used to create the listing is used as the seller.</p>
 
 <p>A listing will expire 60 days after its expiration date.</p>
+
+<p data-height="780" data-theme-id="dark" data-slug-hash="oyPrNV" data-default-tab="js,result" data-user="originprotocol" data-embed-version="2" data-pen-title="Origin.js: Create Listing" class="codepen">See the Pen <a href="https://codepen.io/originprotocol/pen/oyPrNV/">Origin.js: Create Listing</a> by Origin Protocol (<a href="https://codepen.io/originprotocol">@originprotocol</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <h2 id='listing-buy'>buy</h2>
 <blockquote>
 <p>To buy a listing</p>
@@ -1261,6 +1305,12 @@ Users are implemented as <a href="https://medium.com/originprotocol/managing-ide
         <span class="na">data</span><span class="p">:</span> <span class="s2">"0x7f5e752d19fee44e13bb0cc820255017c35584caddc055641d6ccadfa3afca01"</span><span class="p">,</span>
         <span class="na">claimType</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
         <span class="na">service</span><span class="p">:</span> <span class="s2">"twitter"</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="na">signature</span><span class="p">:</span> <span class="s2">"0xeb6123e537e17e2c67b67bbc0b93e6b25ea9eae276c4c2ab353bd7e853ebad2446cc7e91327f3737559d7a9a90fc88529a6b72b770a612f808ab0ba57a46866e1c"</span><span class="p">,</span>
+        <span class="na">data</span><span class="p">:</span> <span class="s2">"0x7f5e752d19fee44e13bb0cc820255017c35584caddc055641d6ccadfa3afca01"</span><span class="p">,</span>
+        <span class="na">claimType</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="na">service</span><span class="p">:</span> <span class="s2">"airbnb"</span>
       <span class="p">}</span>
     <span class="p">],</span>
     <span class="na">identityAddress</span><span class="p">:</span> <span class="s2">"0x4E72770760c011647D4873f60A3CF6cDeA896CD8"</span>
@@ -1453,5 +1503,6 @@ No issue is too small. Help us fix our tpyos!
           </div>
       </div>
     </div>
+    <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
   </body>
 </html>

@@ -94,6 +94,12 @@ Users are implemented as <a href="https://medium.com/originprotocol/managing-ide
         <span class="na">data</span><span class="p">:</span> <span class="s2">"0x7f5e752d19fee44e13bb0cc820255017c35584caddc055641d6ccadfa3afca01"</span><span class="p">,</span>
         <span class="na">claimType</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
         <span class="na">service</span><span class="p">:</span> <span class="s2">"twitter"</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="na">signature</span><span class="p">:</span> <span class="s2">"0xeb6123e537e17e2c67b67bbc0b93e6b25ea9eae276c4c2ab353bd7e853ebad2446cc7e91327f3737559d7a9a90fc88529a6b72b770a612f808ab0ba57a46866e1c"</span><span class="p">,</span>
+        <span class="na">data</span><span class="p">:</span> <span class="s2">"0x7f5e752d19fee44e13bb0cc820255017c35584caddc055641d6ccadfa3afca01"</span><span class="p">,</span>
+        <span class="na">claimType</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="na">service</span><span class="p">:</span> <span class="s2">"airbnb"</span>
       <span class="p">}</span>
     <span class="p">],</span>
     <span class="na">identityAddress</span><span class="p">:</span> <span class="s2">"0x4E72770760c011647D4873f60A3CF6cDeA896CD8"</span>

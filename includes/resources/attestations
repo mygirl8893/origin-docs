@@ -10,6 +10,7 @@
 <li>Phone</li>
 <li>Facebook</li>
 <li>Twitter</li>
+<li>Airbnb</li>
 </ul>
 
 <p>Currently, an attestation is simply a public <em>confirmation</em> that something has been verified by Origin.
@@ -148,3 +149,34 @@ Once permissions have been granted, the popup window will <a href="https://devel
 <p>This will perform Twitter oauth verification on the specified <code>code</code>. If it is valid, an attestation object will be returned.</p>
 
 <p>Note that <code>code</code> is the code generated in <code>twitterAuthUrl</code></p>
+<h2 id='attestation-airbnbgeneratecode'>airbnbGenerateCode</h2>
+<blockquote>
+<p>To generate verification code</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">attestations</span><span class="p">.</span><span class="nx">airbnbGenerateCode</span><span class="p">({</span>
+  <span class="na">wallet</span><span class="p">:</span> <span class="nx">myWalletAddress</span><span class="p">,</span>
+  <span class="na">airbnbUserId</span><span class="p">:</span> <span class="c1">// user's id on Airbnb website</span>
+<span class="p">})</span>
+<span class="c1">// Returns (object)</span>
+<span class="p">{</span>
+  <span class="nl">code</span><span class="p">:</span> <span class="s2">"0x0deef6ef"</span>
+<span class="p">}</span>
+</code></pre>
+<p>This will generate a unique code that should be inserted into user&#39;s Airbnb profile description.</p>
+<h2 id='attestation-airbnbverify'>airbnbVerify</h2>
+<blockquote>
+<p>To verify ownership of Airbnb profile</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="kd">let</span> <span class="nx">emailAttestation</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">attestations</span><span class="p">.</span><span class="nx">airbnbVerify</span><span class="p">({</span>
+  <span class="na">wallet</span><span class="p">:</span> <span class="nx">myWalletAddress</span><span class="p">,</span>
+  <span class="na">airbnbUserId</span><span class="p">:</span> <span class="c1">// user's id on Airbnb website</span>
+<span class="p">})</span>
+<span class="c1">// Returns (attestation object)</span>
+<span class="p">{</span>
+  <span class="nl">signature</span><span class="p">:</span> <span class="s2">"0xeb6123e537e17e2c67b67bbc0b93e6b25ea9eae276c4c2ab353bd7e853ebad2446cc7e91327f3737559d7a9a90fc88529a6b72b770a612f808ab0ba57a46866e1c"</span><span class="p">,</span>
+  <span class="nx">data</span><span class="p">:</span> <span class="s2">"0x7f5e752d19fee44e13bb0cc820255017c35584caddc055641d6ccadfa3afca01"</span><span class="p">,</span>
+  <span class="nx">claimType</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+  <span class="nx">service</span><span class="p">:</span> <span class="s2">"airbnb"</span>
+<span class="p">}</span>
+</code></pre>
+<p>If user has inserted the correct <code>code</code> in his Airbnb profile, an attestation object will be returned.</p>
