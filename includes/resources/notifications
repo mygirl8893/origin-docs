@@ -1,0 +1,69 @@
+<h1 id='notifications'>Notifications</h1>
+<p>Each <strong>Notification</strong> corresponds to a state change of a <a href="#purchase">Purchase</a>. Notifications are currently generated for each of the following purchase stages:</p>
+
+<ul>
+<li><code>in_escrow</code></li>
+<li><code>seller_pending</code></li>
+<li><code>buyer_pending</code></li>
+<li><code>complete</code></li>
+</ul>
+
+<p>Notifications do not exist on the blockchain nor are they read from a database. They are derived from the blockcahin transaction logs of purchases at the time of the API request. Because of this, there is no central record of a notification&#39;s status as &quot;read&quot; or &quot;unread&quot;. When a client first interacts with the notifications API, Origin.js will record a timestamp in local storage. All notifications resulting from blockchain events that happen prior to this timestamp will be considered to be &quot;read&quot;. This ensures that when the same user interacts with the notifications API from a different client for the first time, they will not receive a large number of &quot;unread&quot; notifications that they have previously read from their original client.</p>
+<h2 id='notifications-all'>all</h2>
+<blockquote>
+<p>To get all notifications for a given ETH account</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">userAddress</span> <span class="o">=</span> <span class="s2">"0x627306090abaB3A6e1400e9345bC60c78a8BEf57"</span>
+<span class="kr">const</span> <span class="nx">notifications</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">notifications</span><span class="p">.</span><span class="nx">all</span><span class="p">(</span><span class="nx">userAddress</span><span class="p">)</span>
+<span class="c1">// Returns </span>
+<span class="p">[</span>
+  <span class="p">{</span>
+    <span class="s2">"id"</span><span class="p">:</span> <span class="s2">"seller_listing_purchased_0x23172349165f59c95567e1e993e473ba914d0dd4fe59ee398b051cfda4cea622_0xCa163A64f8c3d8A6c15A46f95DA492476Ef3E613"</span><span class="p">,</span>
+    <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"seller_listing_purchased"</span><span class="p">,</span>
+    <span class="s2">"status"</span><span class="p">:</span> <span class="s2">"unread"</span><span class="p">,</span>
+    <span class="s2">"resources"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">"listing"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"address"</span><span class="p">:</span> <span class="s2">"0x4E205e04A1A8f230702fe51f3AfdCC38aafB0f3C"</span><span class="p">,</span>
+        <span class="s2">"ipfsHash"</span><span class="p">:</span> <span class="s2">"QmfXRgtSbrGggApvaFCa88ofeNQP79G18DpWaSW1Wya1u8"</span><span class="p">,</span>
+        <span class="s2">"sellerAddress"</span><span class="p">:</span> <span class="s2">"0x627306090abaB3A6e1400e9345bC60c78a8BEf57"</span><span class="p">,</span>
+        <span class="s2">"priceWei"</span><span class="p">:</span> <span class="s2">"300000000000000000"</span><span class="p">,</span>
+        <span class="s2">"price"</span><span class="p">:</span> <span class="s2">"0.3"</span><span class="p">,</span>
+        <span class="s2">"unitsAvailable"</span><span class="p">:</span> <span class="s2">"23"</span><span class="p">,</span>
+        <span class="s2">"created"</span><span class="p">:</span> <span class="s2">"1530320045"</span><span class="p">,</span>
+        <span class="s2">"expiration"</span><span class="p">:</span> <span class="s2">"1535504045"</span><span class="p">,</span>
+        <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Taylor Swift's Reputation Tour"</span><span class="p">,</span>
+        <span class="s2">"category"</span><span class="p">:</span> <span class="s2">"Music"</span><span class="p">,</span>
+        <span class="s2">"description"</span><span class="p">:</span> <span class="s2">"Taylor Swift's Reputation Stadium Tour is the fifth world concert tour by American singer-songwriter Taylor Swift, in support of her sixth studio album, Reputation."</span><span class="p">,</span>
+        <span class="s2">"location"</span><span class="p">:</span> <span class="s2">"Sports Authority Field at Mile High, Denver, CO, USA"</span>
+      <span class="p">},</span>
+      <span class="s2">"purchase"</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">"address"</span><span class="p">:</span> <span class="s2">"0xc7a3D1D729F268Adf375aC84c497D236fd95c35B"</span><span class="p">,</span>
+        <span class="s2">"stage"</span><span class="p">:</span> <span class="s2">"complete"</span><span class="p">,</span>
+        <span class="s2">"listingAddress"</span><span class="p">:</span> <span class="s2">"0x4E205e04A1A8f230702fe51f3AfdCC38aafB0f3C"</span><span class="p">,</span>
+        <span class="s2">"buyerAddress"</span><span class="p">:</span> <span class="s2">"0x821aEa9a577a9b44299B9c15c88cf3087F3b5544"</span><span class="p">,</span>
+        <span class="s2">"created"</span><span class="p">:</span> <span class="mi">1530320046</span><span class="p">,</span>
+        <span class="s2">"buyerTimeout"</span><span class="p">:</span> <span class="mi">1532134446</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="p">...</span>
+<span class="p">]</span>
+</code></pre>
+<p>This will return an array of notification objects, each containing the following properties:</p>
+
+<ul>
+<li><code>id</code>: a concatenated <code>String</code> consisting of the event type, transaction hash, and purchase address</li>
+<li><code>type</code>: a <code>String</code> descriptor of the purchase stage: <code>seller_listing_purchased</code>, <code>seller_review_received</code>, <code>buyer_listing_shipped</code>, or <code>buyer_review_received</code></li>
+<li><code>status</code>: a <code>String</code> representation of the notification state: <code>read</code> or <code>unread</code></li>
+<li><code>resources</code>: a convenience <code>Object</code> containing the <a href="#listing">Listing</a> and the <a href="#purchase">Purchase</a> objects</li>
+</ul>
+<h2 id='notifications-set'>set</h2>
+<blockquote>
+<p>To update the status of a notification</p>
+</blockquote>
+<pre class="highlight javascript tab-javascript"><code><span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">notifications</span><span class="p">.</span><span class="nx">set</span><span class="p">({</span>
+  <span class="na">id</span><span class="p">:</span> <span class="s2">"seller_listing_purchased_0x23172349165f59c95567e1e993e473ba914d0dd4fe59ee398b051cfda4cea622_0xCa163A64f8c3d8A6c15A46f95DA492476Ef3E613"</span><span class="p">,</span>
+  <span class="na">status</span><span class="p">:</span> <span class="s2">"read"</span><span class="p">,</span>
+<span class="p">})</span>
+</code></pre>
+<p>Since notification objects do not live on the blockchain or in a database, this method only records an update to the client&#39;s local storage. It accepts a single parameter, which should be an object containing the <code>id</code> of the notification and a <code>status</code> value of either <code>read</code> or <code>unread</code>. Any other properties included in this object will be ignored.</p>

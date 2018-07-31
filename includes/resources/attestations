@@ -26,16 +26,26 @@ Once an attestation object has been created, it needs to be added to a user obje
 <p>To send an SMS verification code</p>
 </blockquote>
 <pre class="highlight javascript tab-javascript"><code><span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">attestations</span><span class="p">.</span><span class="nx">phoneGenerateCode</span><span class="p">({</span>
-  <span class="na">phone</span><span class="p">:</span> <span class="s2">"555-555-5555"</span>
+  <span class="na">countryCallingCode</span><span class="p">:</span> <span class="s2">"1"</span><span class="p">,</span>
+  <span class="na">phone</span><span class="p">:</span> <span class="s2">"555-555-5555"</span><span class="p">,</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s2">"sms"</span><span class="p">,</span>
+  <span class="na">locale</span><span class="p">:</span> <span class="s2">"en"</span>
 <span class="p">})</span>
 </code></pre>
-<p>This will send a text message to the given phone number containing a verification code.</p>
+<p>This will perform a phone verification by calling or sending a SMS to a phone number.</p>
+
+<p>The phone number that will receive the call or SMS is the <code>countryCallingCode</code> combined with the <code>phone</code>. The <code>phone</code> should therefore be provided in the national format.</p>
+
+<p>The <code>method</code> can either by &quot;call&quot; or &quot;sms&quot;.</p>
+
+<p>The <code>locale</code> parameter is optional and it defines the language of the call or the SMS. If not provided a sensible default is used based on the country of the phone number. Supported languages are af, ar, ca, zh, zh-CN, zh-HK, hr, cs, da, nl, en, fi, fr, de, el, he, hi, hu, id, it, ja, ko, ms, nb, pl, pt-BR, pt, ro, ru, es, sv, tl, th, tr, vi.</p>
 <h2 id='attestation-phoneverify'>phoneVerify</h2>
 <blockquote>
 <p>To verify a ownership of a phone number</p>
 </blockquote>
 <pre class="highlight javascript tab-javascript"><code><span class="kd">let</span> <span class="nx">phoneAttestation</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">origin</span><span class="p">.</span><span class="nx">attestations</span><span class="p">.</span><span class="nx">phoneVerify</span><span class="p">({</span>
   <span class="na">wallet</span><span class="p">:</span> <span class="nx">myWalletAddress</span><span class="p">,</span>
+  <span class="na">countryCallingCode</span><span class="p">:</span> <span class="s2">"1"</span><span class="p">,</span>
   <span class="na">phone</span><span class="p">:</span> <span class="s2">"555-555-5555"</span><span class="p">,</span>
   <span class="na">code</span><span class="p">:</span> <span class="s2">"123456"</span>
 <span class="p">})</span>
@@ -48,6 +58,8 @@ Once an attestation object has been created, it needs to be added to a user obje
 <span class="p">}</span>
 </code></pre>
 <p>This will verify that the <code>code</code> submitted in the request is the one that was sent to the phone number in the <code>phoneGenerateCode</code> call. If it is valid, an attestation object will be returned.</p>
+
+<p>Note that the <code>countryCallingCode</code> and <code>phone</code> must have the same values as the values used in the <code>phoneGenerateCode</code> call.</p>
 <h2 id='attestation-emailgeneratecode'>emailGenerateCode</h2>
 <blockquote>
 <p>To send an email verification code</p>

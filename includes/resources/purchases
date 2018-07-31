@@ -19,7 +19,7 @@
   <span class="nx">listingAddress</span><span class="p">:</span> <span class="s2">"0x05a52d9a9e9e91c6932ec2af7bf0c127660fa181"</span><span class="p">,</span>
   <span class="nx">buyerAddress</span><span class="p">:</span> <span class="s2">"0x627306090abab3a6e1400e9345bc60c78a8bef57"</span><span class="p">,</span>
   <span class="nx">created</span><span class="p">:</span> <span class="mi">1524492517</span><span class="p">,</span>
-  <span class="nx">buyerTimout</span><span class="p">:</span> <span class="mi">0</span>
+  <span class="nx">buyerTimeout</span><span class="p">:</span> <span class="mi">0</span>
 <span class="p">}</span>
 </code></pre>
 <p>This will return information about the purchase.</p>
